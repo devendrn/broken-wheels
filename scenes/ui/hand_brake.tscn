@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scenes/ui/hand_brake.gd" id="1_yxcws"]
 [ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2_a27ci"]
-[ext_resource type="Texture2D" uid="uid://cgky0gb1mmdrw" path="res://assets/ui/start_btn.svg" id="3_a1a1w"]
+[ext_resource type="Texture2D" uid="uid://bnh0ksoa541lv" path="res://assets/ui/hand_brake_knob.svg" id="3_nlblw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uis34"]
 size = Vector2(80, 80)
 
-[node name="IgnitionSlider" type="Control"]
+[node name="HandBrake" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
@@ -29,5 +29,5 @@ patch_margin_bottom = 16
 
 [node name="Button" type="TouchScreenButton" parent="."]
 position = Vector2(-45, 0)
-texture_normal = ExtResource("3_a1a1w")
+texture_normal = ExtResource("3_nlblw")
 shape = SubResource("RectangleShape2D_uis34")

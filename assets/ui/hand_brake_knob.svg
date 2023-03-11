@@ -7,7 +7,7 @@
    viewBox="0 0 90 95"
    version="1.1"
    id="svg5"
-   sodipodi:docname="start_btn.svg"
+   sodipodi:docname="hand_brake_knob.svg"
    inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="4.8110446"
-     inkscape:cx="-30.554695"
-     inkscape:cy="50.404854"
+     inkscape:zoom="3.5594213"
+     inkscape:cx="-39.051292"
+     inkscape:cy="34.415707"
      inkscape:window-width="1920"
      inkscape:window-height="999"
      inkscape:window-x="0"
@@ -43,30 +43,30 @@
        id="perspective1074" />
   </defs>
   <rect
-     style="fill:#e6e6e6;stroke-width:9.37063;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
+     style="fill:#ececec;stroke-width:9.37063;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
      id="rect585"
      width="80"
      height="85"
      x="5"
      y="5"
-     rx="18.396235"
-     ry="19.12907" />
+     rx="20.126308"
+     ry="20.126308" />
   <rect
-     style="fill:#808080;stroke-width:8.67232;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
+     style="fill:#808080;stroke-width:11.6555;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
      id="rect602"
-     width="37.04311"
-     height="68"
-     x="12"
-     y="13.5"
-     rx="13.70716"
-     ry="13.70716" />
+     width="65"
+     height="70"
+     x="12.5"
+     y="12.5"
+     rx="14.860574"
+     ry="16.003695" />
   <rect
-     style="fill:#808080;stroke-width:3.88998;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
-     id="rect654"
-     width="19.974571"
-     height="25.372488"
-     x="57.460625"
-     y="34.813755"
-     rx="9.9872856"
-     ry="9.9872856" />
+     style="fill:#ececec;stroke-width:9.29447;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
+     id="rect336"
+     width="25"
+     height="35"
+     x="32.5"
+     y="5.4082346"
+     rx="12.5"
+     ry="9.8843937" />
 </svg>

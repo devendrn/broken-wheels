@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cplc47vwtc1pa"
-path="res://.godot/imported/start_slider.svg-cb5f3a558c799c4c56877ad43de35dd2.ctex"
+uid="uid://bnh0ksoa541lv"
+path="res://.godot/imported/hand_brake_knob.svg-5d3f60671b3c3733af6650b69e7bab16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/start_slider.svg"
-dest_files=["res://.godot/imported/start_slider.svg-cb5f3a558c799c4c56877ad43de35dd2.ctex"]
+source_file="res://assets/ui/hand_brake_knob.svg"
+dest_files=["res://.godot/imported/hand_brake_knob.svg-5d3f60671b3c3733af6650b69e7bab16.ctex"]
 
 [params]
 

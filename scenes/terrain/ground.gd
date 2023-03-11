@@ -31,7 +31,6 @@ func update_chunk(chunk):
 		chunk.polygon[i].y = noise(pos_x + i*chunk_width/div)
 	chunk.get_node("Color").polygon = chunk.polygon
 	chunk.get_node("Stripes").polygon = chunk.polygon
-#	print(chunk.polygon)
 
 func _process(_delta):
 	var camera = get_node("../Car/Camera")
@@ -47,6 +46,3 @@ func _process(_delta):
 		chunks[chunk_order[2]].global_position.x -= 3*chunk_width
 		update_chunk(chunks[chunk_order[2]])
 		chunk_order = [chunk_order[2],chunk_order[0],chunk_order[1]]
-		
-#	print(chunks[chunk_order[0]],chunks[chunk_order[1]],chunks[chunk_order[2]])
-#	print(chunks[chunk_order[0]].global_position,chunks[chunk_order[1]].global_position,chunks[chunk_order[2]].global_position)

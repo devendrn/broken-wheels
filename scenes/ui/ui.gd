@@ -1,39 +1,36 @@
 extends CanvasLayer
 
-var gear = 0
-var clutch = 0
-var brake = 0
-var acce = 0
+var rpm = 0
+var speed = 0
+
+func _ready():
+	$ClutchPedal.spring = false
 
 func _process(delta):
-
-	var AccePedal = $AccePedal/Button
-	var BrakePedal = $BrakePedal/Button
-
-	# bring pedals back to original position
-	if !AccePedal.is_pressed():
-		if AccePedal.position.y > 0:
-			AccePedal.position.y -= delta*(100+3*AccePedal.position.y)
-		else: AccePedal.position.y = 0
-	if !BrakePedal.is_pressed():
-		if BrakePedal.position.y > 0:
-			BrakePedal.position.y -= delta*(100+3*BrakePedal.position.y)
-		else: BrakePedal.position.y = 0
-
-	clutch = $ClutchPedal/Button.position.y/$ClutchPedal.btn_height
-
-	GlobalVars.clutch = clutch
-	GlobalVars.gas = AccePedal.position.y/$AccePedal.btn_height
-	GlobalVars.brake = BrakePedal.position.y/$BrakePedal.btn_height
+	GlobalVars.clutch = $ClutchPedal.value
+	GlobalVars.gas = $AccePedal.value
+	GlobalVars.brake = $BrakePedal.value
 	
+	# control the gauge 
+	if GlobalVars.engine_on:
+		# smooth interpolation for changes
+		rpm += min((GlobalVars.engine_rpm - rpm)*10,3000)*delta
+		speed += min((GlobalVars.speed - speed)*10,150)*delta
+	else:
+		rpm -= rpm*4*delta
+		speed -= speed*4*delta
 	
+	$Gauge/RPM.set_rotation(-2.36 + 4.7*rpm/6000)
+	$Gauge/Speed.set_rotation(-2.36 + 4.7*speed/200)
+
+	# debug state
 	# round to 3 decimals
 	var debug_text = ""
 	var rounded_values = [GlobalVars.gear,GlobalVars.clutch,GlobalVars.brake,GlobalVars.gas,GlobalVars.ignition,int(GlobalVars.engine_on)]
 	for i in range(rounded_values.size()):
 		rounded_values[i] = round(rounded_values[i]*100)/100
 		
-	debug_text = "Gear: %\nClutch: %\nBrake: %\nAccel: %\nIngnition: %\nEngine status: %\n\n".format(rounded_values, "%")
+	debug_text = "Gear: %\nClutch: %\nBrake: %\nAccel: %\nIgnition: %\nEngine status: %\n\n".format(rounded_values, "%")
 
 	var debug = GlobalVars.state
 	for i in debug:

@@ -10,8 +10,6 @@ size = Vector2(140, 90)
 [node name="Slider" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
 script = ExtResource("1")
 metadata/_edit_vertical_guides_ = []
 

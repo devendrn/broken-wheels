@@ -1,16 +1,50 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1wt52otjjnws"]
+[gd_scene load_steps=8 format=3 uid="uid://d1wt52otjjnws"]
 
 [ext_resource type="PackedScene" uid="uid://b7l4uq3bc105n" path="res://scenes/ui/slider.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://q7xsqt0jbgmc" path="res://scenes/ui/shifter.tscn" id="2"]
 [ext_resource type="Script" path="res://scenes/ui/ui.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://bucefoly7h17l" path="res://assets/ui/gauge.svg" id="4"]
 [ext_resource type="Texture2D" uid="uid://c4kyxg83ufyk2" path="res://assets/ui/gauge_rod.svg" id="5"]
-[ext_resource type="Script" path="res://scenes/ui/Gauge.gd" id="6"]
 [ext_resource type="PackedScene" uid="uid://ci5cfiwtg2jfr" path="res://scenes/ui/start_slider.tscn" id="7_wgecf"]
 [ext_resource type="PackedScene" uid="uid://c1f6ey6w4etjv" path="res://scenes/ui/hand_brake.tscn" id="8_iur2y"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("3")
+
+[node name="Gauge" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -253.0
+offset_right = 220.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("4")
+stretch_mode = 2
+
+[node name="RPM" type="TextureRect" parent="Gauge"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 27.0
+offset_right = 345.0
+offset_bottom = 135.0
+pivot_offset = Vector2(20, 88)
+texture = ExtResource("5")
+
+[node name="Speed" type="TextureRect" parent="Gauge"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 27.0
+offset_right = 135.0
+offset_bottom = 135.0
+pivot_offset = Vector2(20, 88)
+texture = ExtResource("5")
 
 [node name="BrakePedal" parent="." instance=ExtResource("1")]
 anchors_preset = 3
@@ -59,58 +93,34 @@ offset_right = 184.0
 offset_bottom = -189.0
 grow_vertical = 0
 
+[node name="IngnitionSlider" parent="." instance=ExtResource("7_wgecf")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_top = 70.0
+offset_right = -199.0
+offset_bottom = 70.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="HandBrake" parent="." instance=ExtResource("8_iur2y")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -471.0
+offset_top = -220.0
+offset_right = -471.0
+offset_bottom = -220.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [node name="DebugText" type="RichTextLabel" parent="."]
 offset_left = 16.0
 offset_top = 12.0
 offset_right = 316.0
 offset_bottom = 360.0
-text = "Debug Text Enabled (Input)"
+text = "Debug Text Enabled"
 scroll_active = false
-
-[node name="Gauge" type="TextureRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -253.0
-offset_right = 220.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("4")
-stretch_mode = 2
-script = ExtResource("6")
-
-[node name="RPM" type="TextureRect" parent="Gauge"]
-layout_mode = 0
-offset_left = 305.0
-offset_top = 27.0
-offset_right = 345.0
-offset_bottom = 135.0
-pivot_offset = Vector2(20, 88)
-texture = ExtResource("5")
-
-[node name="Speed" type="TextureRect" parent="Gauge"]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 27.0
-offset_right = 135.0
-offset_bottom = 135.0
-pivot_offset = Vector2(20, 88)
-texture = ExtResource("5")
-
-[node name="IngnitionSlider" parent="." instance=ExtResource("7_wgecf")]
-offset_left = 1277.0
-offset_top = 64.0
-offset_right = 1277.0
-offset_bottom = 64.0
-
-[node name="IgnitionSlider" parent="." instance=ExtResource("8_iur2y")]
-offset_left = 1047.0
-offset_top = 491.0
-offset_right = 1047.0
-offset_bottom = 491.0

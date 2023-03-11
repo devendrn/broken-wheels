@@ -1,32 +1,42 @@
 extends Control
 
-var prev_pos = 0
-var new_pos = 0
+var spring = true
+var value = 0
+
+var touch_pos = 0
 var diff = 0
 
-@onready var btn_height = $Line.size.y - 105
+@onready var max_offset = $Line.size.y - $Button.shape.size.y - 15
+@onready var btn_width = $Button.shape.size.x
 
 func _input(event):
-	
-	if $Button.is_pressed():
+	var btn = $Button
+	if btn.is_pressed():
 		if event is InputEventScreenTouch:
-			prev_pos = event.position.y
+			touch_pos = event.position.y
 		if event is InputEventScreenDrag:
-			var x_dist = event.position.x-$Button.global_position.x - 70
-			if  abs(x_dist)<110:
-				var dist = (event.position.y - prev_pos)
+			var x_dist = event.position.x - btn.global_position.x - btn_width*0.5 - 10
+			if abs(x_dist)<btn_width*0.7:
+				var dist = (event.position.y - touch_pos)
 				diff = 0.7*diff + 0.3*dist
-				new_pos =  $Button.position.y + diff
-				if new_pos >= 0.0 and new_pos <= btn_height:
-					$Button.position.y =  new_pos
-				prev_pos = event.position.y
+				btn.position.y =  clamp(btn.position.y + diff,0,max_offset)
+				touch_pos = event.position.y
 
-# inertia for sliders
 func _process(delta):
-	if !$Button.is_pressed():
-		$Button.position.y = clamp($Button.position.y+50*diff*delta,0.0,btn_height)
+	var btn = $Button
+	if !btn.is_pressed():
+		# inertia for sliders - very jerky
+		btn.position.y = clamp(btn.position.y+80*diff*delta,0.0,max_offset)
 		diff = sign(diff)*max(abs(diff)-80*delta,0)
-#		print(diff)
+		
+		# bring pedals back to original position
+		if spring:
+			if btn.position.y > 0:
+				btn.position.y -= delta*(30 + 6*btn.position.y)
+			else: 
+				btn.position.y = 0
+	value = btn.position.y/max_offset
+
 
 
 

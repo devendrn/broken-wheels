@@ -23,7 +23,7 @@ polygon = PackedVector2Array(-537.778, -242.222, -171.111, -286.667, 100, -262.2
 position = Vector2(-221, 101)
 
 [node name="WheelF" parent="." instance=ExtResource("3_rgb4d")]
-position = Vector2(223, 104)
+position = Vector2(219, 104)
 
 [node name="PinJointR" type="PinJoint2D" parent="."]
 position = Vector2(-221, 7)
