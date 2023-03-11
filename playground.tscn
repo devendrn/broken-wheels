@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cko3mujo7aeq2"]
+
+[ext_resource type="PackedScene" uid="uid://d1wt52otjjnws" path="res://scenes/ui/ui.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dqt44qtw5m2ug" path="res://scenes/car/car.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bdt3o20nmdbrh" path="res://scenes/terrain/ground.tscn" id="3_77d1i"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Car" parent="." instance=ExtResource("3")]
+position = Vector2(757, 286)
+
+[node name="Camera" type="Camera2D" parent="Car"]
+position = Vector2(6, 77)
+
+[node name="Ground" parent="." instance=ExtResource("3_77d1i")]
+position = Vector2(-61, 1475)
+
+[node name="GUI" parent="." instance=ExtResource("2")]

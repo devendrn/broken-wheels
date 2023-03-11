@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://q7xsqt0jbgmc"]
+
+[ext_resource type="Texture2D" uid="uid://cnie5biqgt3mt" path="res://assets/ui/shifter_knob.svg" id="1"]
+[ext_resource type="Script" path="res://scenes/ui/shifter.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://0yj83ioqnp7t" path="res://assets/ui/shifter_cover.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/shifter_lever.svg" id="4"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 48.42
+
+[node name="Shifter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2")
+
+[node name="Cover" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -166.5
+offset_top = -166.5
+offset_right = 166.5
+offset_bottom = 166.5
+pivot_offset = Vector2(166.5, 166.5)
+texture = ExtResource("3")
+
+[node name="Lever" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 86.0
+pivot_offset = Vector2(31, 31)
+texture = ExtResource("4")
+
+[node name="Knob" type="TouchScreenButton" parent="."]
+position = Vector2(-71.5, -71.5)
+texture_normal = ExtResource("1")
+shape = SubResource("1")
+shape_visible = false

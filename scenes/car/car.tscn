@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqt44qtw5m2ug"]
+
+[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_02ho8"]
+[ext_resource type="Texture2D" uid="uid://jybrcorcm7wq" path="res://assets/car/car.svg" id="2_a30x8"]
+[ext_resource type="PackedScene" uid="uid://by4f4omep15rr" path="res://scenes/car/wheel.tscn" id="3_rgb4d"]
+
+[node name="Car" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 2.0
+can_sleep = false
+script = ExtResource("1_02ho8")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_a30x8")
+
+[node name="Body" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 11)
+scale = Vector2(0.45, 0.45)
+polygon = PackedVector2Array(-537.778, -242.222, -171.111, -286.667, 100, -262.222, 382.222, -106.667, 653.333, -64.4444, 775.556, 6.66667, 784.444, 157.778, 720, 220, -706.667, 191.111, -771.111, 137.778, -742.222, -104.444)
+
+[node name="WheelR" parent="." instance=ExtResource("3_rgb4d")]
+position = Vector2(-221, 101)
+
+[node name="WheelF" parent="." instance=ExtResource("3_rgb4d")]
+position = Vector2(223, 104)
+
+[node name="PinJointR" type="PinJoint2D" parent="."]
+position = Vector2(-221, 7)
+node_a = NodePath("..")
+node_b = NodePath("../WheelR")
+softness = 10.0
+
+[node name="PinJointF" type="PinJoint2D" parent="."]
+position = Vector2(223, 7)
+node_a = NodePath("..")
+node_b = NodePath("../WheelF")
+softness = 10.0
+
+[node name="GrooveJointF" type="GrooveJoint2D" parent="."]
+position = Vector2(223, 79)
+node_a = NodePath("..")
+node_b = NodePath("../WheelF")
+
+[node name="GrooveJointR" type="GrooveJoint2D" parent="."]
+position = Vector2(-221, 76)
+node_a = NodePath("..")
+node_b = NodePath("../WheelR")

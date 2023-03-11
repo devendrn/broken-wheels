@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdt3o20nmdbrh"]
+
+[ext_resource type="Script" path="res://scenes/terrain/ground.gd" id="1_nrkc5"]
+[ext_resource type="PhysicsMaterial" uid="uid://dldmkax2p6c5e" path="res://scenes/terrain/ground.tres" id="2_3romu"]
+[ext_resource type="PackedScene" uid="uid://dd41h5etw6lss" path="res://scenes/terrain/chunk.tscn" id="2_jj2kr"]
+
+[node name="Ground" type="StaticBody2D"]
+physics_material_override = ExtResource("2_3romu")
+script = ExtResource("1_nrkc5")
+
+[node name="Collision1" parent="." instance=ExtResource("2_jj2kr")]
+position = Vector2(-2000, 0)
+
+[node name="Collision2" parent="." instance=ExtResource("2_jj2kr")]
+
+[node name="Collision3" parent="." instance=ExtResource("2_jj2kr")]
+position = Vector2(2000, 0)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://by4f4omep15rr"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://c5vridio37278" path="res://scenes/car/tyre.tres" id="1_c7och"]
+[ext_resource type="Texture2D" uid="uid://bmokf716bgx3b" path="res://assets/car/wheel.svg" id="2_pqi6p"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2xr3"]
+
+[node name="Wheel" type="RigidBody2D"]
+
+[node name="Axel" type="RigidBody2D" parent="."]
+mass = 0.2
+physics_material_override = ExtResource("1_c7och")
+can_sleep = false
+
+[node name="Texture" type="Sprite2D" parent="Axel"]
+scale = Vector2(0.89, 0.89)
+texture = ExtResource("2_pqi6p")
+
+[node name="Collision" type="CollisionShape2D" parent="Axel"]
+shape = SubResource("1")
+
+[node name="PinJoint" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Axel")
+softness = 0.2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f2xr3")

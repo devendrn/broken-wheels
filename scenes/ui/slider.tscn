@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7l4uq3bc105n"]
+
+[ext_resource type="Script" path="res://scenes/ui/slider.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://bgj5s7uivvg81" path="res://assets/ui/slider_btn.svg" id="3"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(140, 90)
+
+[node name="Slider" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Line" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_right = 15.0
+offset_bottom = 204.0
+grow_horizontal = 2
+pivot_offset = Vector2(15, 0)
+texture = ExtResource("2")
+patch_margin_left = 15
+patch_margin_top = 16
+patch_margin_right = 15
+patch_margin_bottom = 16
+
+[node name="Button" type="TouchScreenButton" parent="."]
+position = Vector2(-80, 0)
+texture_normal = ExtResource("3")
+shape = SubResource("1")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1f6ey6w4etjv"]
+
+[ext_resource type="Script" path="res://scenes/ui/hand_brake.gd" id="1_yxcws"]
+[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2_a27ci"]
+[ext_resource type="Texture2D" uid="uid://cgky0gb1mmdrw" path="res://assets/ui/start_btn.svg" id="3_a1a1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uis34"]
+size = Vector2(80, 80)
+
+[node name="IgnitionSlider" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_yxcws")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Line" type="NinePatchRect" parent="."]
+layout_mode = 1
+offset_left = -15.0
+offset_right = 15.0
+offset_bottom = 185.0
+pivot_offset = Vector2(15, 0)
+texture = ExtResource("2_a27ci")
+patch_margin_left = 15
+patch_margin_top = 16
+patch_margin_right = 15
+patch_margin_bottom = 16
+
+[node name="Button" type="TouchScreenButton" parent="."]
+position = Vector2(-45, 0)
+texture_normal = ExtResource("3_a1a1w")
+shape = SubResource("RectangleShape2D_uis34")
