@@ -12,6 +12,7 @@ gradient = SubResource("Gradient_eqlvj")
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
 
 [node name="Stripes" type="Polygon2D" parent="."]
+show_behind_parent = true
 texture_repeat = 2
 color = Color(0.647059, 0.647059, 0.647059, 1)
 texture = SubResource("GradientTexture1D_ovodt")

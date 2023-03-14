@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/shifter_lever.svg" id="4"]
 
 [sub_resource type="CircleShape2D" id="1"]
-radius = 48.42
+radius = 60.0
 
 [node name="Shifter" type="Control"]
 layout_mode = 3
@@ -36,4 +36,3 @@ texture = ExtResource("4")
 position = Vector2(-71.5, -71.5)
 texture_normal = ExtResource("1")
 shape = SubResource("1")
-shape_visible = false

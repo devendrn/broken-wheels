@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1wt52otjjnws"]
+[gd_scene load_steps=9 format=3 uid="uid://d1wt52otjjnws"]
 
 [ext_resource type="PackedScene" uid="uid://b7l4uq3bc105n" path="res://scenes/ui/slider.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://q7xsqt0jbgmc" path="res://scenes/ui/shifter.tscn" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bucefoly7h17l" path="res://assets/ui/gauge.svg" id="4"]
 [ext_resource type="Texture2D" uid="uid://c4kyxg83ufyk2" path="res://assets/ui/gauge_rod.svg" id="5"]
 [ext_resource type="PackedScene" uid="uid://ci5cfiwtg2jfr" path="res://scenes/ui/start_slider.tscn" id="7_wgecf"]
+[ext_resource type="Script" path="res://scenes/ui/graph.gd" id="8_3xgwr"]
 [ext_resource type="PackedScene" uid="uid://c1f6ey6w4etjv" path="res://scenes/ui/hand_brake.tscn" id="8_iur2y"]
 
 [node name="UI" type="CanvasLayer"]
@@ -29,7 +30,7 @@ texture = ExtResource("4")
 stretch_mode = 2
 
 [node name="RPM" type="TextureRect" parent="Gauge"]
-layout_mode = 0
+layout_mode = 1
 offset_left = 305.0
 offset_top = 27.0
 offset_right = 345.0
@@ -97,10 +98,10 @@ grow_vertical = 0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -199.0
-offset_top = 70.0
-offset_right = -199.0
-offset_bottom = 70.0
+offset_left = -237.0
+offset_top = 69.0
+offset_right = -237.0
+offset_bottom = 69.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 
@@ -117,10 +118,19 @@ offset_bottom = -220.0
 grow_horizontal = 0
 grow_vertical = 0
 
+[node name="Graphs" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 215.0
+offset_top = 70.0
+offset_right = 432.0
+offset_bottom = 227.0
+script = ExtResource("8_3xgwr")
+
 [node name="DebugText" type="RichTextLabel" parent="."]
 offset_left = 16.0
 offset_top = 12.0
-offset_right = 316.0
+offset_right = 284.0
 offset_bottom = 360.0
 text = "Debug Text Enabled"
 scroll_active = false

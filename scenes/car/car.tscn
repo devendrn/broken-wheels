@@ -17,7 +17,7 @@ texture = ExtResource("2_a30x8")
 [node name="Body" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 11)
 scale = Vector2(0.45, 0.45)
-polygon = PackedVector2Array(-537.778, -242.222, -171.111, -286.667, 100, -262.222, 382.222, -106.667, 653.333, -64.4444, 775.556, 6.66667, 784.444, 157.778, 720, 220, -706.667, 191.111, -771.111, 137.778, -742.222, -104.444)
+polygon = PackedVector2Array(-733.333, -93.3333, -508.889, -253.333, 66.6667, -260, 375.556, -97.7778, 760, -6.66667, 784.444, 157.778, 713.333, 222.222, -695.556, 195.556, -771.111, 137.778)
 
 [node name="WheelR" parent="." instance=ExtResource("3_rgb4d")]
 position = Vector2(-221, 101)
@@ -32,13 +32,13 @@ node_b = NodePath("../WheelR")
 softness = 10.0
 
 [node name="PinJointF" type="PinJoint2D" parent="."]
-position = Vector2(223, 7)
+position = Vector2(219, 7)
 node_a = NodePath("..")
 node_b = NodePath("../WheelF")
 softness = 10.0
 
 [node name="GrooveJointF" type="GrooveJoint2D" parent="."]
-position = Vector2(223, 79)
+position = Vector2(219, 79)
 node_a = NodePath("..")
 node_b = NodePath("../WheelF")
 

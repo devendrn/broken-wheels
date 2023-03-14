@@ -4,7 +4,7 @@ extends Node
 var clutch = 0
 var gear = 0
 var brake = 0
-var gas = 0	# change name to accel
+var accel = 0
 var ignition = 0
 var engine_on = false
 

@@ -8,17 +8,20 @@ func _ready():
 
 func _process(delta):
 	GlobalVars.clutch = $ClutchPedal.value
-	GlobalVars.gas = $AccePedal.value
+	GlobalVars.accel = $AccePedal.value
 	GlobalVars.brake = $BrakePedal.value
 	
 	# control the gauge 
-	if GlobalVars.engine_on:
+	if GlobalVars.ignition > -1:
 		# smooth interpolation for changes
-		rpm += min((GlobalVars.engine_rpm - rpm)*10,3000)*delta
+		rpm += min((GlobalVars.engine_rpm - rpm)*10,5000)*delta
 		speed += min((GlobalVars.speed - speed)*10,150)*delta
 	else:
 		rpm -= rpm*4*delta
 		speed -= speed*4*delta
+		
+#	rpm = GlobalVars.engine_rpm
+#	speed = GlobalVars.speed
 	
 	$Gauge/RPM.set_rotation(-2.36 + 4.7*rpm/6000)
 	$Gauge/Speed.set_rotation(-2.36 + 4.7*speed/200)
@@ -26,7 +29,7 @@ func _process(delta):
 	# debug state
 	# round to 3 decimals
 	var debug_text = ""
-	var rounded_values = [GlobalVars.gear,GlobalVars.clutch,GlobalVars.brake,GlobalVars.gas,GlobalVars.ignition,int(GlobalVars.engine_on)]
+	var rounded_values = [GlobalVars.gear,GlobalVars.clutch,GlobalVars.brake,GlobalVars.accel,GlobalVars.ignition,int(GlobalVars.engine_on)]
 	for i in range(rounded_values.size()):
 		rounded_values[i] = round(rounded_values[i]*100)/100
 		
