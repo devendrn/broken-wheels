@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqt44qtw5m2ug"]
 
-[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_02ho8"]
+[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_0m7wk"]
 [ext_resource type="Texture2D" uid="uid://jybrcorcm7wq" path="res://assets/car/car.svg" id="2_a30x8"]
 [ext_resource type="PackedScene" uid="uid://by4f4omep15rr" path="res://scenes/car/wheel.tscn" id="3_rgb4d"]
 
@@ -9,7 +9,7 @@ collision_layer = 2
 collision_mask = 2
 mass = 2.0
 can_sleep = false
-script = ExtResource("1_02ho8")
+script = ExtResource("1_0m7wk")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_a30x8")
@@ -41,8 +41,10 @@ softness = 10.0
 position = Vector2(219, 79)
 node_a = NodePath("..")
 node_b = NodePath("../WheelF")
+length = 35.0
 
 [node name="GrooveJointR" type="GrooveJoint2D" parent="."]
 position = Vector2(-221, 76)
 node_a = NodePath("..")
 node_b = NodePath("../WheelR")
+length = 35.0

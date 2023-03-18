@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # constant values
-const gear_ratio = [-5.5,0,5.5,2.5,1.6,1.2,1]
+const gear_ratio = [-5.5,0,5.6,2.5,1.6,1.2,1]
 
 # static variables
 var gear
@@ -12,8 +12,8 @@ var engine_on
 var ignition 
 
 const peak_rpm = 4500
-const min_rpm = 800
 const ignition_rpm = 1000
+const min_rpm = 800
 
 # dynamic temp variables
 var engine_status = 1
@@ -22,16 +22,17 @@ var wheel_rpm = 0
 var engine_torque = 0
 var wheel_torque = 0
 var wheel_torque_r = 0
+var vibrations = -1
 
 # final values for output
 var actual_engine_rpm = 0
 
 # s-curve function
-func sigmoid(x,r1,r2,f1,f2):
+func sigmoid(x:float,r1:float,r2:float,pos_peak:float,neg_peak:float):
 	if x >= 0:
-		return f1*(r1 + 1)*x/(1 + r1*x)
+		return pos_peak*(r1 + 1)*x/(1 + r1*x)
 	if x < 0:
-		return f2*(r2 - 1)*x/(1 - r2*x)
+		return neg_peak*(r2 - 1)*x/(1 - r2*x)
 
 func _physics_process(delta):
 	
@@ -71,8 +72,21 @@ func _physics_process(delta):
 	engine_damping *= 1.0 + 2.0*int(!engine_on)
 	engine_rpm -= delta*engine_damping
 	
-	engine_torque = 6*engine_rpm
-	
+	# stall engine if rpm is too low
+	if actual_engine_rpm < min_rpm and engine_on:
+		if vibrations > 1:
+			vibrations = -1
+		else:
+			vibrations += delta*12.0
+			engine_rpm += abs(vibrations)*(min_rpm-engine_rpm)*delta*50
+#			engine_torque *= 1 + abs(vibrations)*((min_rpm-actual_engine_rpm)/600)*10
+#			engine_torque += 300*(min_rpm-actual_engine_rpm)*abs(vibrations)
+			if actual_engine_rpm < 500:
+				engine_on = false
+				GlobalVars.engine_on = engine_on
+
+	engine_torque = 9*engine_rpm
+
 	if gear != 0:
 		# apply gear ratio to find target wheel rpm and torque
 		var ratio = gear_ratio[gear+1]
@@ -80,6 +94,7 @@ func _physics_process(delta):
 		
 		# applied torque on front wheel (fwd)
 		wheel_torque = engine_torque*ratio
+#		wheel_torque = engine_torque*6
 		
 		# engine friction
 		if abs(wheel_rpm) > 0.0:	# needs more tweaks
@@ -88,19 +103,13 @@ func _physics_process(delta):
 		wheel_torque *= (1-clutch)
 		
 		actual_engine_rpm = engine_rpm*clutch + (1-clutch)*WheelF.angular_velocity*60*ratio
+		engine_rpm += (actual_engine_rpm-engine_rpm)*delta*20
+		
 	else:
 		wheel_rpm = 0
 		wheel_torque = 0
 		actual_engine_rpm = engine_rpm
 		
-	# stall engine if rpm is low
-	if actual_engine_rpm < 700:
-		wheel_torque *= 2.0
-		wheel_torque_r *= 2.0
-		if actual_engine_rpm < 500:
-			engine_on = false
-			GlobalVars.engine_on = engine_on
-
 	# brakes - obiously needs some simplification
 	if brake > 0:
 		wheel_torque = wheel_torque*(1-brake)

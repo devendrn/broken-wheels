@@ -1,36 +1,59 @@
 extends Control
 
-const steps = 45
+const res = 40
+const delay = 0.02
+
 var timer = 0
+var vals = [[],[],[]]
 
-var vals = []
+# values should be in 0-1 range 
+func plot(y:Array,origin:Vector2,dimension:Vector2):
+	# draw the grid
+	var grid_x = 2
+	var grid_y = 6
+	var step_x = dimension.x/(grid_x-1)
+	var step_y = dimension.y/(grid_y-1)
+	for i in range(0,grid_y):
+		var line_col = Color(1,1,1)*0.5
+		if i in [0,grid_y-1]: line_col = Color(1,1,1)*0.7
+		draw_line(origin+Vector2(0,i*step_y),origin+Vector2(dimension.x,i*step_y),line_col,1)
+	
+	for i in range(0,grid_x):
+		var line_col = Color(1,1,1)*0.5
+		if i in [0,grid_x-1]: line_col = Color(1,1,1)*0.7
+		draw_line(origin+Vector2(i*step_x,0),origin+Vector2(i*step_x,dimension.y),line_col,1)
 
-# y should be in 0-1 range 
-func draw_graph(y:Array,origin:Vector2,dimension:Vector2,col:Color=Color.RED):
-	var pts = PackedVector2Array()
-	var lx = len(y)
-	var step = dimension.x/lx
-	for i in range(0,lx):
-		pts.append(origin+Vector2(i*step,dimension.y*(1-y[i])))
-	var ly = 5
-	var step_y = dimension.y/ly
-	for i in range(1,ly):
-		draw_line(origin+Vector2(0,i*step_y),origin+Vector2(dimension.x,i*step_y),Color.DIM_GRAY,1)
-	draw_line(origin+Vector2(0,dimension.y),origin+dimension,Color.GRAY,1)
-	draw_line(origin,origin+Vector2(dimension.x,0),Color.GRAY,1)
-	draw_polyline(pts,col,2)
+	# plot the given data sets [y0,y1,...]
+	var set_len = len(y)
+	for i in range(set_len):
+		var vals = y[i]
+		var l = len(vals)
+		var step = dimension.x/l
+		var pt0 = origin + Vector2(0,(1-vals[0])*dimension.y)
+		var pt1 = Vector2()
+		var plot_col = Color.from_hsv(float(i)/set_len,0.6,1)
+		for j in range(0,l):
+			pt1.x = pt0.x + step
+			pt1.y =  origin.y + (1-vals[j])*dimension.y
+			var depth = float(j)/l
+			var grad_col = Color(plot_col,0.5)*(1-depth) + plot_col*depth
+			draw_line(pt0,pt1,grad_col,3)
+			pt0 = pt1
 	
 func _ready():
-	vals.resize(steps)
-	vals.fill(0)
-	
+	for i in vals:
+		i.resize(res)
+		i.fill(0)
+
 func _draw():
-	draw_graph(vals,Vector2(0,0),Vector2(130,100))
+	plot(vals,Vector2(0,0),Vector2(90,130))
 	
 func _process(delta):
-	if timer > 0.03:
-		vals.pop_front()
-		vals.append(GlobalVars.engine_rpm/5000)
+	if timer > delay:
+		for i in vals: i.pop_front()
+		vals[0].append(GlobalVars.engine_rpm/5000)
+		vals[1].append(GlobalVars.state['Engine rpm']/5000)
+		vals[2].append(GlobalVars.speed/200)
 		queue_redraw()
 		timer = 0
 	else:
