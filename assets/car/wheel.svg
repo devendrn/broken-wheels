@@ -7,7 +7,7 @@
    viewBox="0 0 36.512499 36.5125"
    version="1.1"
    id="svg3223"
-   sodipodi:docname="tyre.svg"
+   sodipodi:docname="wheel.svg"
    inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,10 +24,10 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="2.6193548"
-     inkscape:cx="104.22414"
-     inkscape:cy="113.19581"
+     inkscape:cx="50.394089"
+     inkscape:cy="32.641626"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -39,7 +39,7 @@
      transform="matrix(0.12985233,0,0,0.12985356,-178.8529,-99.511704)"
      style="display:inline">
     <ellipse
-       style="display:inline;fill:#999999;stroke-width:0.766339"
+       style="display:inline;fill:#707070;stroke-width:0.766339;fill-opacity:1"
        id="path938-7-2"
        cx="1458.843"
        cy="999.23053"
@@ -47,19 +47,19 @@
        rx="105.62767"
        ry="105.62668" />
     <ellipse
-       style="display:inline;fill:#808080;stroke-width:1.13682"
+       style="display:inline;fill:#535353;stroke-width:1.13682;fill-opacity:1"
        id="path2244-9"
        cx="1517.9486"
        cy="906.92896"
        rx="76.069313"
        ry="76.068588" />
     <path
-       style="display:inline;fill:#b3b3b3"
+       style="display:inline;fill:#878787;fill-opacity:1"
        id="path1024-1"
        d="m 1459.4026,830.90949 c 28.4465,26.38312 100.1152,-32.37192 107.6213,5.69289 7.5061,38.06482 -81.1024,10.91521 -97.4037,46.12226 -16.3014,35.20705 61.7248,85.21173 27.8425,104.11312 -33.8823,18.90144 -35.443,-73.75993 -73.9643,-78.38389 -38.5213,-4.62396 -61.9671,85.03567 -90.4136,58.65256 -28.4465,-26.38311 59.1974,-56.50135 51.6913,-94.56617 -7.5061,-38.06481 -100.0227,-32.65679 -83.7213,-67.86384 16.3014,-35.20706 72.029,38.84017 105.9113,19.93878 33.8823,-18.90139 0.1497,-105.21868 38.671,-100.59472 38.5213,4.62396 -14.681,80.5059 13.7655,106.88901 z"
        transform="matrix(0.81948115,0,0,0.81948115,347.59269,199.17807)" />
     <ellipse
-       style="display:inline;fill:none;stroke:#cccccc;stroke-width:39.0396;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;fill:none;stroke:#959595;stroke-width:39.0396;stroke-dasharray:none;stroke-opacity:1"
        id="path2327-2"
        cx="1517.9486"
        cy="906.92896"

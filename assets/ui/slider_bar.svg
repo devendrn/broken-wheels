@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="30"
+   width="40"
    height="100"
-   viewBox="0 0 29.999999 99.999998"
+   viewBox="0 0 39.999999 99.999998"
    version="1.1"
    id="svg331"
    sodipodi:docname="slider_bar.svg"
@@ -23,40 +23,37 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="8.38"
-     inkscape:cx="1.9689737"
-     inkscape:cy="47.911695"
+     inkscape:zoom="6.9486515"
+     inkscape:cx="-21.730835"
+     inkscape:cy="45.116668"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg331" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs328" />
   <g
      id="layer1"
-     style="fill:#b3b3b3">
+     style="fill:#808080;stroke-width:0;stroke-dasharray:none">
     <rect
-       style="fill:#b3b3b3"
-       id="rect335"
-       width="20"
-       height="90"
-       x="5"
-       y="5"
-       ry="8.9949999" />
-  </g>
-  <g
-     id="g11392"
-     transform="matrix(0.77819984,0,0,0.93987689,3.3270023,3.0061557)"
-     style="fill:#808080">
+       style="fill:#333333;stroke:#696969;stroke-width:3.14319;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1017"
+       width="26.856808"
+       height="86.856804"
+       x="6.5715961"
+       y="6.5715981"
+       ry="12.5"
+       rx="12.499999" />
     <rect
-       style="fill:#808080"
-       id="rect11390"
-       width="20"
-       height="90"
-       x="5"
-       y="5"
-       ry="8.9949999" />
+       style="fill:#4d4d4d;stroke:none;stroke-width:1.68606;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2494"
+       width="9.5921011"
+       height="69.976479"
+       x="15.203949"
+       y="15.011759"
+       ry="4.7347536"
+       rx="4.7347536" />
   </g>
 </svg>

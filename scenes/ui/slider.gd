@@ -6,7 +6,7 @@ var value = 0
 var touch_pos = 0
 var diff = 0
 
-@onready var max_offset = $Line.size.y - $Button.shape.size.y - 15
+@onready var max_offset = $Line.size.y - $Button.shape.size.y - 12
 @onready var btn_width = $Button.shape.size.x
 
 func _input(event):

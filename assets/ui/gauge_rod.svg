@@ -24,10 +24,10 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="7.7921596"
-     inkscape:cx="-11.742573"
-     inkscape:cy="68.466257"
+     inkscape:cx="-29.388515"
+     inkscape:cy="55.247842"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -38,23 +38,23 @@
      id="layer1"
      transform="translate(-23.8125,-5.9413843)">
     <circle
-       style="fill:#f9f9f9;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill"
+       style="fill:#e6e6e6;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill;fill-opacity:1"
        id="path348"
        cx="29.104166"
        cy="29.104067"
        r="3.9687495" />
     <path
        id="rect5539"
-       style="fill:#f9f9f9;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;paint-order:stroke markers fill"
+       style="fill:#b3b3b3;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-linejoin:bevel;paint-order:stroke markers fill;fill-opacity:1"
        d="m 28.931813,7.2643014 h 0.344929 c 0.197612,0 0.351323,0.1591622 0.356701,0.3567018 l 0.529076,19.4328738 c 0.006,0.21913 -0.30473,0.386306 -0.683249,0.386306 h -0.6607 c -0.378522,0 -0.688112,-0.171529 -0.683251,-0.386306 L 28.575111,7.6210032 C 28.579611,7.423441 28.7342,7.2643014 28.931813,7.2643014 Z" />
     <circle
-       style="fill:#cccccc;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill"
+       style="fill:#333333;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill"
        id="circle2496"
        cx="29.104166"
        cy="29.104067"
        r="3.1470737" />
     <circle
-       style="fill:#f9f9f9;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill"
+       style="fill:#999999;stroke:#cccccc;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0206581;paint-order:stroke markers fill"
        id="circle4809"
        cx="29.104166"
        cy="29.104067"

@@ -15,21 +15,21 @@ script = ExtResource("2")
 
 [node name="Cover" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -166.5
-offset_top = -166.5
-offset_right = 166.5
-offset_bottom = 166.5
-pivot_offset = Vector2(166.5, 166.5)
+offset_left = -105.0
+offset_top = -120.0
+offset_right = 105.0
+offset_bottom = 120.0
+pivot_offset = Vector2(105, 120)
 texture = ExtResource("3")
 
 [node name="Lever" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = -31.0
-offset_top = -31.0
-offset_right = 31.0
-offset_bottom = 86.0
-pivot_offset = Vector2(31, 31)
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 75.0
+pivot_offset = Vector2(35, 35)
 texture = ExtResource("4")
 
 [node name="Knob" type="TouchScreenButton" parent="."]

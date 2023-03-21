@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="256"
-   height="256"
-   viewBox="0 0 256 256"
+   width="210"
+   height="240"
+   viewBox="0 0 210 240"
    version="1.1"
    id="svg5"
    sodipodi:docname="shifter_cover.svg"
-   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,29 +23,47 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.1894281"
-     inkscape:cx="65.998104"
-     inkscape:cy="110.55733"
+     inkscape:zoom="2.5980239"
+     inkscape:cx="128.55925"
+     inkscape:cy="129.90643"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="layer1" />
   <defs
-     id="defs2" />
+     id="defs2">
+    <linearGradient
+       id="linearGradient12180"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0"
+         id="stop12178" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient12168"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0"
+         id="stop12166" />
+    </linearGradient>
+  </defs>
   <g
      id="layer1"
-     style="fill:#808080;stroke-width:6;stroke-dasharray:none;stroke:#9c9c9c;stroke-opacity:1">
+     style="fill:#808080;stroke:#9c9c9c;stroke-width:6;stroke-dasharray:none;stroke-opacity:1">
     <path
-       id="path1453-3-1"
-       style="fill:#808080;stroke:#9c9c9c;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke markers fill;stroke-dasharray:none"
-       d="M 232.61802,110.90028 C 195.19615,235.1501 193.69091,236 131.2357,236 68.780501,236 64.045986,236.16158 23.874169,113.97693 -16.297646,-8.2077059 270.03988,-13.349527 232.61802,110.90028 Z" />
+       id="path19165"
+       style="fill:#333333;fill-opacity:1;stroke:#727272;stroke-width:3;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;fill-rule:nonzero"
+       d="m 200.43709,102.02956 c -34.13813,130.57728 -35.51127,131.47045 -92.48608,131.47045 -56.974779,0 -61.293843,0.16982 -97.940603,-128.23713 -36.64676,-128.406914 224.564783,-133.810584 190.426683,-3.23332 z"
+       inkscape:label="path1453-3-1" />
     <circle
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+       style="fill:#333333;fill-opacity:1;stroke:#505050;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
        id="path1453"
-       cx="128"
-       cy="128"
-       r="32" />
+       cx="105"
+       cy="120.00001"
+       r="44.234703" />
   </g>
 </svg>

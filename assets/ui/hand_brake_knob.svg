@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="hand_brake_knob.svg"
-   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:version="1.2.2 (1:1.2.2+202212051552+b0a8486541)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,11 +23,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="3.5594213"
-     inkscape:cx="-39.051292"
-     inkscape:cy="34.415707"
+     inkscape:zoom="4.2016368"
+     inkscape:cx="0.23800249"
+     inkscape:cy="61.999648"
      inkscape:window-width="1920"
-     inkscape:window-height="999"
+     inkscape:window-height="991"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -42,31 +42,24 @@
        inkscape:persp3d-origin="55 : 21.666667 : 1"
        id="perspective1074" />
   </defs>
-  <rect
-     style="fill:#ececec;stroke-width:9.37063;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
-     id="rect585"
-     width="80"
-     height="85"
-     x="5"
-     y="5"
-     rx="20.126308"
-     ry="20.126308" />
-  <rect
-     style="fill:#808080;stroke-width:11.6555;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
-     id="rect602"
-     width="65"
-     height="70"
-     x="12.5"
-     y="12.5"
-     rx="14.860574"
-     ry="16.003695" />
-  <rect
-     style="fill:#ececec;stroke-width:9.29447;stroke-linecap:round;stroke-miterlimit:3.2;paint-order:markers fill stroke"
-     id="rect336"
-     width="25"
-     height="35"
-     x="32.5"
-     y="5.4082346"
-     rx="12.5"
-     ry="9.8843937" />
+  <g
+     id="g14214"
+     inkscape:label="slider"
+     style="fill:#333333;stroke:#b5b5b5;stroke-opacity:1">
+    <rect
+       style="display:inline;fill:#333333;stroke:#b5b5b5;stroke-width:3;stroke-linecap:round;stroke-miterlimit:3.2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect585"
+       width="80"
+       height="85"
+       x="5"
+       y="5"
+       rx="20.126308"
+       ry="20.126308"
+       inkscape:label="rect585" />
+    <path
+       id="rect14140"
+       style="fill:#333333;stroke:#b5b5b5;stroke-width:3;stroke-linecap:butt;stroke-miterlimit:3.2;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;stroke-linejoin:bevel"
+       d="m 31.568359,18.746094 c -7.536118,0 -13.603515,6.073384 -13.603515,13.617187 v 30.273438 c 0,7.543803 6.067397,13.617187 13.603515,13.617187 h 26.863282 c 7.536118,0 13.603515,-6.073384 13.603515,-13.617187 V 32.363281 c 0,-7.543803 -6.067397,-13.617187 -13.603515,-13.617187 -2.407234,0 -1.929688,2.322952 -1.929688,9.902344 0,6.515109 -5.130314,11.759765 -11.501953,11.759765 -6.371639,0 -11.501953,-5.244656 -11.501953,-11.759765 0,-7.983679 0.975562,-9.902344 -1.929688,-9.902344 z"
+       sodipodi:nodetypes="cssssssccscc" />
+  </g>
 </svg>

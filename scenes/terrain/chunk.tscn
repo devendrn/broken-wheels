@@ -14,13 +14,13 @@ polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
 [node name="Stripes" type="Polygon2D" parent="."]
 show_behind_parent = true
 texture_repeat = 2
-color = Color(0.647059, 0.647059, 0.647059, 1)
+color = Color(0.403922, 0.403922, 0.403922, 1)
 texture = SubResource("GradientTexture1D_ovodt")
 texture_scale = Vector2(0.25, 0.25)
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
 
 [node name="Color" type="Polygon2D" parent="."]
-color = Color(0.415686, 0.415686, 0.415686, 1)
+color = Color(0.317647, 0.317647, 0.317647, 1)
 offset = Vector2(0, 15)
 texture_scale = Vector2(0.025, 0.025)
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)

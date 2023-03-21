@@ -37,7 +37,7 @@ func plot(y:Array,origin:Vector2,dimension:Vector2):
 			pt1.y =  origin.y + (1-vals[j])*dimension.y
 			var depth = float(j)/l
 			var grad_col = Color(plot_col,0.5)*(1-depth) + plot_col*depth
-			draw_line(pt0,pt1,grad_col,3)
+			draw_line(pt0,pt1,grad_col,2)
 			pt0 = pt1
 	
 func _ready():

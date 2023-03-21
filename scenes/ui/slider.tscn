@@ -23,14 +23,14 @@ offset_left = -15.0
 offset_right = 15.0
 offset_bottom = 204.0
 grow_horizontal = 2
-pivot_offset = Vector2(15, 0)
+pivot_offset = Vector2(20, 0)
 texture = ExtResource("2")
-patch_margin_left = 15
-patch_margin_top = 16
-patch_margin_right = 15
-patch_margin_bottom = 16
+patch_margin_left = 20
+patch_margin_top = 21
+patch_margin_right = 20
+patch_margin_bottom = 21
 
 [node name="Button" type="TouchScreenButton" parent="."]
-position = Vector2(-80, 0)
+position = Vector2(-78, 0)
 texture_normal = ExtResource("3")
 shape = SubResource("1")
