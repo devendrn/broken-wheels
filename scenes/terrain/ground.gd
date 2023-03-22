@@ -1,6 +1,6 @@
 extends Node
 
-const flat = false
+const flat = true
 const chunk_width = 2000.0
 const div = 4
 
