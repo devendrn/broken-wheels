@@ -3,6 +3,16 @@ extends CanvasLayer
 var rpm = 0
 var speed = 0
 
+func format_debug_text(text:String,value,round:bool=true):
+	var col = "#f99"
+	if value > 0: col = "#9f9"
+	else: if value < 0: col = "#99f"
+	
+	if round:
+		value = str(value).pad_decimals(2)
+		
+	return "% [color=%]%[/color]\n".format([text,col,value], "%")
+	
 func _ready():
 	$ClutchPedal.spring = false
 
@@ -26,22 +36,20 @@ func _process(delta):
 	$Gauge/RPM.set_rotation(-2.36 + 4.7*rpm/6000)
 	$Gauge/Speed.set_rotation(-2.36 + 4.7*speed/200)
 
-	# debug state
-	# round to 3 decimals
+	# display values to debug label
 	var debug_text = ""
-	var rounded_values = [GlobalVars.gear,GlobalVars.clutch,GlobalVars.brake,GlobalVars.accel,GlobalVars.ignition,int(GlobalVars.engine_on)]
-	for i in range(rounded_values.size()):
-		rounded_values[i] = round(rounded_values[i]*100)/100
-		
-	debug_text = "Gear: %\nClutch: %\nBrake: %\nAccel: %\nIgnition: %\nEngine status: %\n\n".format(rounded_values, "%")
-
-	var debug = GlobalVars.state
-	for i in debug:
-		debug_text = debug_text + i + " : " +  "%\n"
-		debug_text = debug_text.format([round(debug[i]*100)/100],"%")
-	$DebugText.text = debug_text
+	debug_text += format_debug_text("Clutch:",GlobalVars.clutch)
+	debug_text += format_debug_text("Brake:",GlobalVars.brake)
+	debug_text += format_debug_text("Accel:",GlobalVars.accel)
+	debug_text += format_debug_text("Gear:",GlobalVars.gear,false)
+	debug_text += format_debug_text("Ignition:",GlobalVars.ignition,false)
+	debug_text += format_debug_text("Engine:",int(GlobalVars.engine_on),false)
 	
+	var states = GlobalVars.state
+	for i in states:
+		debug_text += "\n" + i + " : " + str(round(states[i]*100)*0.01)
 	
+	$DebugText.set_text(debug_text)
 	
 	
 
