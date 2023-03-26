@@ -24,3 +24,11 @@ color = Color(0.317647, 0.317647, 0.317647, 1)
 offset = Vector2(0, 15)
 texture_scale = Vector2(0.025, 0.025)
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
+
+[node name="Color2" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(3, -276)
+color = Color(0.317647, 0.317647, 0.317647, 1)
+offset = Vector2(0, 15)
+texture_scale = Vector2(0.025, 0.025)
+polygon = PackedVector2Array(0, 0, 70, 0, 70, 300, 0, 300)

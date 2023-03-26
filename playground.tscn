@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdt3o20nmdbrh" path="res://scenes/terrain/ground.tscn" id="3_77d1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5ugv"]
-size = Vector2(181, 106.5)
+size = Vector2(128.5, 106.5)
 
 [node name="Main" type="Node2D"]
 
@@ -25,6 +25,6 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Collision" type="CollisionShape2D" parent="TestBox"]
-position = Vector2(747, 484)
+position = Vector2(773.25, 484)
 shape = SubResource("RectangleShape2D_s5ugv")
 disabled = true

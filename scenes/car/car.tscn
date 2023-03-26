@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqt44qtw5m2ug"]
+[gd_scene load_steps=7 format=3 uid="uid://dqt44qtw5m2ug"]
 
 [ext_resource type="Script" path="res://scenes/car/car.gd" id="1_0m7wk"]
 [ext_resource type="Texture2D" uid="uid://jybrcorcm7wq" path="res://assets/car/car.svg" id="2_a30x8"]
 [ext_resource type="PackedScene" uid="uid://by4f4omep15rr" path="res://scenes/car/wheel.tscn" id="3_rgb4d"]
+[ext_resource type="AudioStream" uid="uid://deksvq3iekk40" path="res://assets/sound/engine_low.wav" id="4_3v261"]
+[ext_resource type="Script" path="res://scenes/car/sound.gd" id="4_olkkf"]
+[ext_resource type="AudioStream" uid="uid://cjqye3ahadeip" path="res://assets/sound/noise.wav" id="6_72scd"]
 
 [node name="Car" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
-mass = 2.0
+mass = 1.6
 can_sleep = false
 script = ExtResource("1_0m7wk")
 
@@ -16,8 +19,7 @@ texture = ExtResource("2_a30x8")
 
 [node name="Body" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 11)
-scale = Vector2(0.45, 0.45)
-polygon = PackedVector2Array(-733.333, -93.3333, -508.889, -253.333, 66.6667, -260, 375.556, -97.7778, 760, -6.66667, 784.444, 157.778, 713.333, 222.222, -695.556, 195.556, -771.111, 137.778)
+polygon = PackedVector2Array(-328, -46, -223, -113, 47, -114, 173, -44, 334, -9, 356, 70, 308, 102, -312, 87, -355, 41)
 
 [node name="WheelR" parent="." instance=ExtResource("3_rgb4d")]
 position = Vector2(-221, 101)
@@ -29,13 +31,13 @@ position = Vector2(219, 104)
 position = Vector2(-221, 7)
 node_a = NodePath("..")
 node_b = NodePath("../WheelR")
-softness = 10.0
+softness = 8.0
 
 [node name="PinJointF" type="PinJoint2D" parent="."]
 position = Vector2(219, 7)
 node_a = NodePath("..")
 node_b = NodePath("../WheelF")
-softness = 10.0
+softness = 8.0
 
 [node name="GrooveJointF" type="GrooveJoint2D" parent="."]
 position = Vector2(219, 79)
@@ -48,3 +50,17 @@ position = Vector2(-221, 76)
 node_a = NodePath("..")
 node_b = NodePath("../WheelR")
 length = 35.0
+
+[node name="Sound" type="Node2D" parent="."]
+script = ExtResource("4_olkkf")
+
+[node name="Engine_low" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("4_3v261")
+bus = &"Engine"
+
+[node name="TyreRoll" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("6_72scd")
+volume_db = -29.746
+pitch_scale = 0.94
+autoplay = true
+bus = &"Engine"

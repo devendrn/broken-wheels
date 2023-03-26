@@ -1,0 +1,24 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://do56c1eni3bn4"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_fy10a"]
+resource_name = "LowPassFilter"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_ni6g4"]
+resource_name = "Distortion"
+mode = 4
+pre_gain = -10.0
+keep_hf_hz = 5000.0
+drive = 0.7
+post_gain = 10.0
+
+[resource]
+bus/1/name = &"Engine"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Engine 2"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_fy10a")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectDistortion_ni6g4")
+bus/1/effect/1/enabled = true

@@ -35,7 +35,7 @@ pointing/emulate_touch_from_mouse=true
 
 [physics]
 
-2d/default_gravity=980
+2d/default_gravity=1430
 2d/default_linear_damp=0.01
 2d/default_angular_damp=0.1
 common/enable_pause_aware_picking=true

@@ -6,29 +6,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_igkj8"]
 radius = 54.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f2xr3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dg57"]
 
 [node name="Wheel" type="RigidBody2D"]
+mass = 0.1
 center_of_mass_mode = 1
 
-[node name="Axel" type="RigidBody2D" parent="."]
-mass = 0.2
+[node name="Axle" type="RigidBody2D" parent="."]
+mass = 0.08
 center_of_mass_mode = 1
 physics_material_override = ExtResource("1_c7och")
+max_contacts_reported = 1
 can_sleep = false
 
-[node name="Texture" type="Sprite2D" parent="Axel"]
+[node name="Texture" type="Sprite2D" parent="Axle"]
 scale = Vector2(0.89, 0.89)
 texture = ExtResource("2_pqi6p")
 
-[node name="Collision" type="CollisionShape2D" parent="Axel"]
+[node name="Collision" type="CollisionShape2D" parent="Axle"]
 shape = SubResource("CircleShape2D_igkj8")
 debug_color = Color(0.768627, 0.160784, 1, 0.419608)
 
 [node name="PinJoint" type="PinJoint2D" parent="."]
 node_a = NodePath("..")
-node_b = NodePath("../Axel")
-softness = 0.2
+node_b = NodePath("../Axle")
+softness = 0.8
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_f2xr3")
+shape = SubResource("CircleShape2D_5dg57")

@@ -44,6 +44,7 @@ func _process(delta):
 	debug_text += format_debug_text("Gear:",GlobalVars.gear,false)
 	debug_text += format_debug_text("Ignition:",GlobalVars.ignition,false)
 	debug_text += format_debug_text("Engine:",int(GlobalVars.engine_on),false)
+	debug_text += format_debug_text("\nSpeed:",GlobalVars.speed)
 	
 	var states = GlobalVars.state
 	for i in states:

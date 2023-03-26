@@ -13,5 +13,4 @@ var engine_rpm = 0
 var speed = 0
 
 # for debug purpose
-#var state = [0,0,0,0,0]
-var state = {"nil":0}
+var state = {}

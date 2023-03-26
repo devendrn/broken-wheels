@@ -86,12 +86,12 @@ func _draw():
 	
 	
 func _process(delta):
-	var engine_speed = GlobalVars.engine_rpm/5000
+	var engine_speed = GlobalVars.engine_rpm/6000
 	
 	if timer > delay:
 		for i in vals: i.pop_front()
 		vals[0].append(engine_speed)
-		vals[1].append(GlobalVars.state['Engine rpm']/5000)
+		vals[1].append(GlobalVars.state['Engine rpm']/6000)
 		vals[2].append(GlobalVars.speed/200)
 		queue_redraw()
 		timer = 0
