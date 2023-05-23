@@ -1,10 +1,9 @@
 extends Control
 
 # shift positions
-#  1  3  5
-#  0  0  0
-#  2  4 -1
-const pos = [[1,3,5],[0,0,0],[2,4,-1]]
+const pos= [[1,3,5],
+			[0,0,0],
+			[2,4,-1]]
 
 var index = -1
 var gear_pos = Vector2(0,0)

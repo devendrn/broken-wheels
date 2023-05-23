@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0yj83ioqnp7t"
-path="res://.godot/imported/shifter_cover.svg-b74366007dfd164be8e95a6e4fd896b5.ctex"
+uid="uid://c4kyxg83ufyk2"
+path="res://.godot/imported/gauge_rod.svg-5b283b7d2861b747fcbfdf07c7967598.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/shifter_cover.svg"
-dest_files=["res://.godot/imported/shifter_cover.svg-b74366007dfd164be8e95a6e4fd896b5.ctex"]
+source_file="res://assets/ui/controls/gauge_rod.svg"
+dest_files=["res://.godot/imported/gauge_rod.svg-5b283b7d2861b747fcbfdf07c7967598.ctex"]
 
 [params]
 

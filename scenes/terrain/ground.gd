@@ -1,13 +1,15 @@
 extends Node
 
-const flat = true
+var flat = true
+
+@onready var chunks = [$Collision1,$Collision2,$Collision3]
+
 const chunk_width = 2000.0
 const div = 4
 
 var chunk_order = [0,1,2]
 
 func _ready():
-	var chunks = [$Collision1,$Collision2,$Collision3]
 	for i in chunks:
 		var poly = PackedVector2Array([])
 		for j in range(0,chunk_width+1,chunk_width/div):
@@ -32,9 +34,12 @@ func update_chunk(chunk):
 	chunk.get_node("Color").polygon = chunk.polygon
 	chunk.get_node("Stripes").polygon = chunk.polygon
 
+func update_all_chunks():
+	for i in chunks:
+		update_chunk(i)
+	
 func _process(_delta):
 	var camera = get_node("../Car/Camera")
-	var chunks = [$Collision1,$Collision2,$Collision3]
 	
 	# if camera enters last chunk move the chunk in first index after the chunk in last index
 	if camera.global_position.x > chunks[chunk_order[2]].global_position.x:

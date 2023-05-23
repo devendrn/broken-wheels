@@ -2,7 +2,7 @@ extends Control
 
 const inertia_trigger = 15
 
-var spring = true
+@export var spring : bool = true
 var value = 0
 
 # keep track of touch index (-1 means index not set)

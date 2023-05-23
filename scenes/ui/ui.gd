@@ -1,56 +1,23 @@
 extends CanvasLayer
 
-var rpm = 0
-var speed = 0
+@onready var ground = get_node("../Ground")
+@onready var car = get_node("../Car")
 
-func format_debug_text(text:String,value,round:bool=true):
-	var col = "#f99"
-	if value > 0: col = "#9f9"
-	else: if value < 0: col = "#99f"
-	
-	if round:
-		value = str(value).pad_decimals(2)
-		
-	return "% [color=%]%[/color]\n".format([text,col,value], "%")
-	
-func _ready():
-	$ClutchPedal.spring = false
+func _on_settings_settings_called(opened):
+	get_tree().paused = opened
 
-func _process(delta):
-	GlobalVars.clutch = $ClutchPedal.value
-	GlobalVars.accel = $AccePedal.value
-	GlobalVars.brake = $BrakePedal.value
-	
-	# control the gauge 
-	if GlobalVars.ignition > -1:
-		# smooth interpolation for changes
-		rpm += min((GlobalVars.engine_rpm - rpm)*10,5000)*delta
-		speed += min((GlobalVars.speed - speed)*10,150)*delta
-	else:
-		rpm -= rpm*4*delta
-		speed -= speed*4*delta
-		
-#	rpm = GlobalVars.engine_rpm
-#	speed = GlobalVars.speed
-	
-	$Gauge/RPM.set_rotation(-2.36 + 4.7*rpm/6000)
-	$Gauge/Speed.set_rotation(-2.36 + 4.7*speed/200)
+# change terrain flat/curved
+func _on_is_flat_terrain_option_toggle_changed(pressed):
+	ground.flat = pressed
+	car.position.y = 300	# lift car up to avoid collision with ground
+	ground.update_all_chunks()
 
-	# display values to debug label
-	var debug_text = ""
-	debug_text += format_debug_text("Clutch:",GlobalVars.clutch)
-	debug_text += format_debug_text("Brake:",GlobalVars.brake)
-	debug_text += format_debug_text("Accel:",GlobalVars.accel)
-	debug_text += format_debug_text("Gear:",GlobalVars.gear,false)
-	debug_text += format_debug_text("Ignition:",GlobalVars.ignition,false)
-	debug_text += format_debug_text("Engine:",int(GlobalVars.engine_on),false)
-	debug_text += format_debug_text("\nSpeed:",GlobalVars.speed)
-	
-	var states = GlobalVars.state
-	for i in states:
-		debug_text += "\n" + i + " : " + str(round(states[i]*100)*0.01)
-	
-	$DebugText.set_text(debug_text)
-	
-	
+# change sound volume
+func _on_sound_value_option_slider_changed(value):
+	# todo - change this function completely
+	var mapped_db = 10*log(value/100)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), mapped_db)
 
+
+func _on_is_debug_option_toggle_changed(pressed):
+	$Controls/DebugText.visible = pressed

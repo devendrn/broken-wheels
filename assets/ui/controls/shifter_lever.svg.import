@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://layn3tbk35es"
-path="res://.godot/imported/shifter_lever.svg-6bca1f9cd89f806cf49cc848285efd33.ctex"
+path="res://.godot/imported/shifter_lever.svg-983b93ea044bc55b0c0c88d3caa1c641.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/shifter_lever.svg"
-dest_files=["res://.godot/imported/shifter_lever.svg-6bca1f9cd89f806cf49cc848285efd33.ctex"]
+source_file="res://assets/ui/controls/shifter_lever.svg"
+dest_files=["res://.godot/imported/shifter_lever.svg-983b93ea044bc55b0c0c88d3caa1c641.ctex"]
 
 [params]
 

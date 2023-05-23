@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4kyxg83ufyk2"
-path="res://.godot/imported/gauge_rod.svg-b058377baa5edc92de3b28d10e9e363b.ctex"
+uid="uid://ep2x7tr7abhu"
+path="res://.godot/imported/option_bg.svg-1f2ae0f04ee2ff41f19ca395f79e04b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/gauge_rod.svg"
-dest_files=["res://.godot/imported/gauge_rod.svg-b058377baa5edc92de3b28d10e9e363b.ctex"]
+source_file="res://assets/ui/option_bg.svg"
+dest_files=["res://.godot/imported/option_bg.svg-1f2ae0f04ee2ff41f19ca395f79e04b7.ctex"]
 
 [params]
 

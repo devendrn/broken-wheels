@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cay1fpwjbu31u"]
+
+[ext_resource type="Theme" uid="uid://c8goif3x5qufn" path="res://theme.tres" id="1_h71ic"]
+[ext_resource type="Texture2D" uid="uid://ep2x7tr7abhu" path="res://assets/ui/option_bg.svg" id="1_nid6d"]
+[ext_resource type="Script" path="res://scenes/ui/settings/slider_option.gd" id="1_tl12x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqwf3"]
+font_size = 24
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(450, 138)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_h71ic")
+script = ExtResource("1_tl12x")
+
+[node name="ColorRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_nid6d")
+patch_margin_left = 23
+patch_margin_top = 24
+patch_margin_right = 25
+patch_margin_bottom = 22
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 36.0
+offset_top = 22.0
+offset_right = -36.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+text = "Slider"
+label_settings = SubResource("LabelSettings_iqwf3")
+
+[node name="Slider" type="HSlider" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -62.0
+offset_right = -35.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+
+[connection signal="value_changed" from="ColorRect/Slider" to="." method="_on_slider_value_changed"]

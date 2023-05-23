@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgj5s7uivvg81"
-path="res://.godot/imported/slider_btn.svg-9db7e27b32a903207ddc9f0c55670326.ctex"
+uid="uid://bucefoly7h17l"
+path="res://.godot/imported/gauge.svg-5ecdbaa506bbb3afd165193d78b225ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/slider_btn.svg"
-dest_files=["res://.godot/imported/slider_btn.svg-9db7e27b32a903207ddc9f0c55670326.ctex"]
+source_file="res://assets/ui/controls/gauge.svg"
+dest_files=["res://.godot/imported/gauge.svg-5ecdbaa506bbb3afd165193d78b225ec.ctex"]
 
 [params]
 

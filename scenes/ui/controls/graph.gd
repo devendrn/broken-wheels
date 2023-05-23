@@ -1,3 +1,4 @@
+@tool
 extends Control
 
 # performance impact of draw?? not sure
@@ -12,7 +13,7 @@ var angle1 = 0.0
 var angle2 = 0.0
 
 func draw_disc(origin:Vector2,dimension:Vector2,col:Color,angle:float=0):
-	const a = 10
+	const a = 8
 	for i in range(0,a):
 		var j = fmod(angle,2.0/a) + (2*float(i)/a)-1
 		var start = origin
@@ -22,7 +23,7 @@ func draw_disc(origin:Vector2,dimension:Vector2,col:Color,angle:float=0):
 		draw_line(start,end,col*(1-0.6*j*j),3-2*j*j)
 	draw_rect(Rect2(origin,dimension),col,false,1)
 	
-func clutch_view(origin:Vector2):
+func clutch_view(origin:Vector2,clutch:float):
 	const col1 = Color.INDIAN_RED
 	const col2 = Color.CORNFLOWER_BLUE
 	const clutch_size = Vector2(10,110)
@@ -30,7 +31,7 @@ func clutch_view(origin:Vector2):
 	const shaft_size = Vector2(10,20)
 	const diaphram_size = Vector2(8,70)
 	
-	var offset = GlobalVars.clutch*3
+	var offset = clutch*3
 	
 	draw_rect(Rect2(origin+Vector2(0,0.5*(box_size.y-shaft_size.y)),shaft_size),col1,false,1)
 	draw_disc(origin+Vector2(10,0.5*(box_size.y-clutch_size.y)),clutch_size,col1,angle1)
@@ -82,22 +83,25 @@ func _ready():
 
 func _draw():
 	plot(vals,Vector2(0,0),Vector2(90,130))
-	clutch_view(Vector2(100,0))
-	
-	
-func _process(delta):
-	var engine_speed = GlobalVars.engine_rpm/6000
-	
-	if timer > delay:
-		for i in vals: i.pop_front()
-		vals[0].append(engine_speed)
-		vals[1].append(GlobalVars.state['Engine rpm']/6000)
-		vals[2].append(GlobalVars.speed/200)
-		queue_redraw()
-		timer = 0
+	if Engine.is_editor_hint():
+		clutch_view(Vector2(100,0),0)
 	else:
-		timer += delta
+		clutch_view(Vector2(100,0),GlobalVars.clutch)
+
+func _process(delta):
+	if !Engine.is_editor_hint():
+		var engine_speed = GlobalVars.engine_rpm/6000
 		
-	# these are temporary (just a gimick value) - todo - implement wheel train rpm
-	angle1 = fmod(angle1 + delta*engine_speed,360)
-	angle2 = fmod(angle2 + delta*max(1-1.15*GlobalVars.clutch,0.0)*engine_speed,360)
+		if timer > delay:
+			for i in vals: i.pop_front()
+			vals[0].append(engine_speed)
+			vals[1].append(GlobalVars.state['Engine rpm']/6000)
+			vals[2].append(GlobalVars.speed/200)
+			queue_redraw()
+			timer = 0
+		else:
+			timer += delta
+			
+		# these are temporary (just a gimick value) - todo - implement wheel train rpm
+		angle1 = fmod(angle1 + 2*delta*engine_speed,360)
+		angle2 = fmod(angle2 + 2*delta*max(1-1.15*GlobalVars.clutch,0.0)*engine_speed,360)

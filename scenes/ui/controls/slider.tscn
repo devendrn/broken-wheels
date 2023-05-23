@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7l4uq3bc105n"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scenes/ui/slider.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2"]
-[ext_resource type="Texture2D" uid="uid://bgj5s7uivvg81" path="res://assets/ui/slider_btn.svg" id="3"]
+[ext_resource type="Script" path="res://scenes/ui/controls/slider.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/controls/slider_bar.svg" id="2"]
+[ext_resource type="Texture2D" uid="uid://bgj5s7uivvg81" path="res://assets/ui/controls/slider_btn.svg" id="3"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(140, 90)

@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cjqye3ahadeip" path="res://assets/sound/noise.wav" id="6_72scd"]
 
 [node name="Car" type="RigidBody2D"]
+process_mode = 1
 collision_layer = 2
 collision_mask = 2
 mass = 1.6

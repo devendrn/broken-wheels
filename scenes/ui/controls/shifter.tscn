@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://q7xsqt0jbgmc"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cnie5biqgt3mt" path="res://assets/ui/shifter_knob.svg" id="1"]
-[ext_resource type="Script" path="res://scenes/ui/shifter.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://0yj83ioqnp7t" path="res://assets/ui/shifter_cover.svg" id="3"]
-[ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/shifter_lever.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://cnie5biqgt3mt" path="res://assets/ui/controls/shifter_knob.svg" id="1"]
+[ext_resource type="Script" path="res://scenes/ui/controls/shifter.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://0yj83ioqnp7t" path="res://assets/ui/controls/shifter_cover.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/controls/shifter_lever.svg" id="4"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 60.0

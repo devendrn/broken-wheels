@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgky0gb1mmdrw"
-path="res://.godot/imported/start_btn.svg-692a99d85cfcbd3a14a161d7bc9f028d.ctex"
+uid="uid://v0y48wi5hc5y"
+path="res://.godot/imported/slider_grabber.svg-3982116b8b774e20de3938186f7033c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/start_btn.svg"
-dest_files=["res://.godot/imported/start_btn.svg-692a99d85cfcbd3a14a161d7bc9f028d.ctex"]
+source_file="res://assets/ui/slider_grabber.svg"
+dest_files=["res://.godot/imported/slider_grabber.svg-3982116b8b774e20de3938186f7033c3.ctex"]
 
 [params]
 

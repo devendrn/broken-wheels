@@ -1,16 +1,20 @@
 # Broken Wheels
 
-A manual transmission car simulator (obsolete at the moment)
+A manual transmission car simulator for mobile devices
+(Android build is not ready)
 
-![Screenshot](docs/screenshot1.jpg "Debug Screenshot")
+![Screenshot](docs/screenshot1.jpg "Game Screenshot")
+
+![Screenshot](docs/screenshot2.jpg "Settings Screenshot")
 
 ## Setup
  - Godot 4.x required
  - Clone the repository and import project.godot file
 
 ## To-do
- - Engine sounds
- - Settings UI
+ - Complete engine sounds
+ - Add more options to settings
+ - Gear box overview
  - Detailed terrain
  - Parallax background
  - Shaders

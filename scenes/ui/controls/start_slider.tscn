@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci5cfiwtg2jfr"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scenes/ui/start_slider.gd" id="1_g4dvk"]
-[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2_fyfib"]
-[ext_resource type="Texture2D" uid="uid://cgky0gb1mmdrw" path="res://assets/ui/start_btn.svg" id="3_8pskb"]
+[ext_resource type="Script" path="res://scenes/ui/controls/start_slider.gd" id="1_g4dvk"]
+[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/controls/slider_bar.svg" id="2_fyfib"]
+[ext_resource type="Texture2D" uid="uid://cgky0gb1mmdrw" path="res://assets/ui/controls/start_btn.svg" id="3_8pskb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uis34"]
 size = Vector2(80, 80)

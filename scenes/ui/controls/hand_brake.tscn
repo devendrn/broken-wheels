@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1f6ey6w4etjv"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scenes/ui/hand_brake.gd" id="1_yxcws"]
-[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/slider_bar.svg" id="2_a27ci"]
-[ext_resource type="Texture2D" uid="uid://bnh0ksoa541lv" path="res://assets/ui/hand_brake_knob.svg" id="3_nlblw"]
+[ext_resource type="Script" path="res://scenes/ui/controls/hand_brake.gd" id="1_yxcws"]
+[ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/controls/slider_bar.svg" id="2_a27ci"]
+[ext_resource type="Texture2D" uid="uid://bnh0ksoa541lv" path="res://assets/ui/controls/hand_brake_knob.svg" id="3_nlblw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uis34"]
 size = Vector2(80, 80)
