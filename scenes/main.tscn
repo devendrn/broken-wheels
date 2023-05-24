@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cko3mujo7aeq2"]
+[gd_scene load_steps=9 format=3 uid="uid://cko3mujo7aeq2"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_km5b7"]
 [ext_resource type="PackedScene" uid="uid://bg6nx8rn1dow1" path="res://scenes/ui/ui.tscn" id="1_yolpa"]
 [ext_resource type="PackedScene" uid="uid://dqt44qtw5m2ug" path="res://scenes/car/car.tscn" id="2_ige6o"]
 [ext_resource type="PackedScene" uid="uid://bdt3o20nmdbrh" path="res://scenes/terrain/ground.tscn" id="3_6g3bj"]
+[ext_resource type="Texture2D" uid="uid://dfmatolj14oxc" path="res://assets/terrain/cloud_1.svg" id="5_qojk1"]
+[ext_resource type="Texture2D" uid="uid://dx4sjpody4uu7" path="res://assets/terrain/cloud_2.svg" id="6_jmqk5"]
+
+[sub_resource type="Gradient" id="Gradient_ynbr7"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0.129412, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xvhow"]
+gradient = SubResource("Gradient_ynbr7")
+width = 4
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_km5b7")
@@ -18,3 +28,68 @@ position = Vector2(0, 89)
 
 [node name="Ground" parent="." instance=ExtResource("3_6g3bj")]
 position = Vector2(-16, 913)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer_" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(6000, 0)
+
+[node name="SkyGradient" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer_"]
+texture_filter = 3
+position = Vector2(53.1974, 55.6119)
+scale = Vector2(1.22166, 0.928335)
+texture = SubResource("GradientTexture1D_xvhow")
+texture_scale = Vector2(0.004, 0.004)
+texture_rotation = -0.747001
+polygon = PackedVector2Array(-79.562, -114.842, -89.3848, 853.558, 1281.7, 869.716, 1271.88, -88.9893)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.008, 1)
+motion_mirroring = Vector2(6000, 0)
+
+[node name="Cloud1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(634, 689)
+texture = ExtResource("5_qojk1")
+
+[node name="Cloud2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1344, 777)
+texture = ExtResource("6_jmqk5")
+
+[node name="Cloud3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-788, 786)
+rotation = 0.427605
+texture = ExtResource("6_jmqk5")
+
+[node name="Cloud4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(2484, 649)
+rotation = 0.263545
+scale = Vector2(-1, -1)
+texture = ExtResource("6_jmqk5")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 1)
+motion_mirroring = Vector2(6000, 0)
+
+[node name="Mountain2" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-434.631, -48)
+scale = Vector2(0.837466, 1)
+color = Color(0.21, 0.21, 0.21, 1)
+polygon = PackedVector2Array(-2545.02, 1343, -1895.44, 791, -1342.59, 958, -666.737, 756, -98.3554, 1075, 1010.94, 846, 1204.38, 985, 1407.38, 855, 1890.98, 1075, 2195.47, 801, 2723, 998, 2894.01, 842, 3436.12, 1017, 4689.9, 882, 5638, 1543, -1985, 1567)
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.07, 1)
+motion_mirroring = Vector2(6000, 0)
+
+[node name="Mountain1" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer1"]
+position = Vector2(-434.631, -48)
+scale = Vector2(0.837466, 1)
+color = Color(0.227451, 0.227451, 0.227451, 1)
+polygon = PackedVector2Array(-2545.02, 1347, -1445, 702, -903.165, 1025, -85.2205, 776, 187.029, 854, 407, 757, 1397, 984, 1707, 814, 2211, 886, 2509.51, 797, 2723, 998, 3587, 782, 4939, 1014, 5195, 894, 5921, 1526, -2502.04, 1561)
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(20000, 0)
+
+[node name="RoadMark" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer0"]
+color = Color(0.282353, 0.282353, 0.282353, 1)
+polygon = PackedVector2Array(1778, 864, 1783, 1083, 1884, 1072, 1826, 859)
