@@ -9,7 +9,13 @@ func _on_settings_settings_called(opened):
 # change terrain flat/curved
 func _on_is_flat_terrain_option_toggle_changed(pressed):
 	ground.flat = pressed
-	car.position.y = 300	# lift car up to avoid collision with ground
+		
+#	car.position.y = -700	# lift car up to avoid collision with ground
+
+	# reset car to original state (should add a button to do this)
+	car.rotation = 0
+	car.position = Vector2(0,100)
+	
 	ground.update_all_chunks()
 
 # change sound volume

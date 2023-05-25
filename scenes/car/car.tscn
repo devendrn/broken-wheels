@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqt44qtw5m2ug"]
+[gd_scene load_steps=8 format=3 uid="uid://dqt44qtw5m2ug"]
 
-[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_0m7wk"]
+[ext_resource type="Script" path="res://scenes/car/car_new.gd" id="1_81bin"]
 [ext_resource type="Texture2D" uid="uid://jybrcorcm7wq" path="res://assets/car/car.svg" id="2_a30x8"]
 [ext_resource type="PackedScene" uid="uid://by4f4omep15rr" path="res://scenes/car/wheel.tscn" id="3_rgb4d"]
+[ext_resource type="Texture2D" uid="uid://dcuf8xfso5abf" path="res://assets/car/rear_light.svg" id="3_wili4"]
 [ext_resource type="AudioStream" uid="uid://deksvq3iekk40" path="res://assets/sound/engine_low.wav" id="4_3v261"]
 [ext_resource type="Script" path="res://scenes/car/sound.gd" id="4_olkkf"]
 [ext_resource type="AudioStream" uid="uid://cjqye3ahadeip" path="res://assets/sound/noise.wav" id="6_72scd"]
@@ -13,12 +14,24 @@ collision_layer = 2
 collision_mask = 2
 mass = 1.6
 can_sleep = false
-script = ExtResource("1_0m7wk")
+script = ExtResource("1_81bin")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_a30x8")
 
-[node name="Body" type="CollisionPolygon2D" parent="."]
+[node name="RearLightOn" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(-324.125, -14)
+scale = Vector2(0.787736, 0.833333)
+texture = ExtResource("3_wili4")
+
+[node name="RearLightBraked" type="Sprite2D" parent="RearLightOn"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-1.74548, -1.8)
+scale = Vector2(0.790419, 0.68)
+texture = ExtResource("3_wili4")
+
+[node name="CollisionPoly" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 11)
 polygon = PackedVector2Array(-328, -46, -223, -113, 47, -114, 173, -44, 334, -9, 356, 70, 308, 102, -312, 87, -355, 41)
 
@@ -32,13 +45,13 @@ position = Vector2(219, 104)
 position = Vector2(-221, 7)
 node_a = NodePath("..")
 node_b = NodePath("../WheelR")
-softness = 8.0
+softness = 7.0
 
 [node name="PinJointF" type="PinJoint2D" parent="."]
 position = Vector2(219, 7)
 node_a = NodePath("..")
 node_b = NodePath("../WheelF")
-softness = 8.0
+softness = 7.0
 
 [node name="GrooveJointF" type="GrooveJoint2D" parent="."]
 position = Vector2(219, 79)
@@ -61,7 +74,7 @@ bus = &"Engine"
 
 [node name="TyreRoll" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("6_72scd")
-volume_db = -29.746
+volume_db = -30.0
 pitch_scale = 0.94
 autoplay = true
 bus = &"Engine"

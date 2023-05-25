@@ -69,7 +69,7 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("2_rjs05")
-stretch_mode = 2
+expand_mode = 1
 
 [node name="RPM" type="TextureRect" parent="Controls/Gauge"]
 layout_mode = 1
@@ -180,10 +180,10 @@ script = ExtResource("8_xfioq")
 visible = false
 modulate = Color(1, 1, 1, 0.772549)
 layout_mode = 0
-offset_left = 36.0
-offset_top = 174.0
-offset_right = 337.0
-offset_bottom = 543.0
+offset_left = 207.0
+offset_top = 28.0
+offset_right = 508.0
+offset_bottom = 548.0
 bbcode_enabled = true
 text = "Debug Text Enabled"
 scroll_active = false

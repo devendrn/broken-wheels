@@ -11,9 +11,10 @@ extends RigidBody2D
 # constant values
 const gear_ratio = [-4.0,0,4.11,2.12,1.36,0.97,0.77]
 const drive_axle_ratio = 3.39
+
 const brake_strength = 95000
 const max_torque_bound = 200000
-const torque_factor = 1.9	# higher means more torque
+const torque_factor = 1.4	# higher means more torque
 const max_rpm = 5200	# max rpm
 const peak_rpm = 3700	# rpm for max torque
 const min_rpm = 800	# idle rpm
@@ -42,6 +43,10 @@ var limiter = 1
 
 # final values for output
 var actual_engine_rpm = 0
+
+func update_brake_light() -> void:
+	$RearLightOn.visible = engine_on
+	$RearLightOn/RearLightBraked.modulate.a = brake
 
 # s-curve function
 func sigmoid(x:float,r1:float,r2:float,pos_peak:float,neg_peak:float=pos_peak):
@@ -153,3 +158,5 @@ func _physics_process(delta):
 		'Wheel torque':wheel_torque,
 		'New clutch':clutch
 	}
+	
+	update_brake_light()

@@ -1,14 +1,17 @@
 extends Node
 
-var flat = true
+var flat: bool = true
+var div: int = 8
 
 @onready var chunks = [$Collision1,$Collision2,$Collision3]
 
 const chunk_width = 2000.0
-const div = 4
 
 var chunk_order = [0,1,2]
 
+var FNoiseL = FastNoiseLite.new()
+
+	
 func _ready():
 	for i in chunks:
 		var poly = PackedVector2Array([])
@@ -18,14 +21,18 @@ func _ready():
 		poly.append(Vector2(0,400))
 		i.polygon = poly
 		update_chunk(i)
+		
+	FNoiseL.seed = 1
+	FNoiseL.fractal_octaves = 2
+	FNoiseL.fractal_lacunarity = 2.7
+	FNoiseL.frequency = 0.12
+	FNoiseL.noise_type = 3	# 3 = perlin
 
 func noise(x):
 	if flat:
 		return 0
 	else:
-		var y = 20*sin(x/1000)
-		y -= 1000*(0.5 + 0.5*sin(x/3000))
-		return y
+		return -500 + 1000*FNoiseL.get_noise_1d(x*0.001)
 	
 func update_chunk(chunk):
 	var pos_x = chunk.global_position.x
