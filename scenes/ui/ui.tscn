@@ -41,7 +41,6 @@ font_color = Color(0.662745, 0.662745, 0.662745, 1)
 size = Vector2(100, 45)
 
 [node name="UI" type="CanvasLayer"]
-process_mode = 3
 script = ExtResource("1_dbo4e")
 
 [node name="Controls" type="Control" parent="."]
@@ -189,6 +188,7 @@ text = "Debug Text Enabled"
 scroll_active = false
 
 [node name="Settings" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

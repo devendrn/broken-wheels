@@ -38,11 +38,14 @@ pointing/emulate_touch_from_mouse=true
 2d/default_gravity=1430
 2d/default_linear_damp=0.01
 2d/default_angular_damp=0.1
+2d/solver/contact_max_allowed_penetration=0.06
 common/enable_pause_aware_picking=true
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/default_filters/anisotropic_filtering_level=1
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 environment/defaults/default_clear_color=Color(0.188235, 0.188235, 0.188235, 1)
 environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"

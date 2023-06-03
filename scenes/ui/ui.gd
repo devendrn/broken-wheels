@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var ground = get_node("../Ground")
-@onready var car = get_node("../Car")
+@onready var ground = get_node("../World/Ground")
+@onready var car = get_node("../World/Car")
 
 func _on_settings_settings_called(opened):
 	get_tree().paused = opened
@@ -14,7 +14,7 @@ func _on_is_flat_terrain_option_toggle_changed(pressed):
 
 	# reset car to original state (should add a button to do this)
 	car.rotation = 0
-	car.position = Vector2(0,100)
+	car.position.y = 0
 	
 	ground.update_all_chunks()
 

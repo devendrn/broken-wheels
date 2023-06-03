@@ -26,7 +26,7 @@ scale = Vector2(0.787736, 0.833333)
 texture = ExtResource("3_wili4")
 
 [node name="RearLightBraked" type="Sprite2D" parent="RearLightOn"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0, 0, 0, 0)
 position = Vector2(-1.74548, -1.8)
 scale = Vector2(0.790419, 0.68)
 texture = ExtResource("3_wili4")

@@ -68,7 +68,7 @@ var engine_ang_vel: float = 0.0
 var engine_torque: float = 0.0
 var engine_health: int = 100
 func update_engine(dt: float, ignition: int, accel: float) -> void:
-	accel = accel*accel*accel
+	accel = accel*accel
 	# only forward	
 	if ignition > 0:	# add rpm upto ignition rpm
 		engine_on = true
@@ -85,13 +85,14 @@ func update_engine(dt: float, ignition: int, accel: float) -> void:
 	engine_torque = 0
 	if engine_on:	
 		engine_target_ang_vel += lerpf(
-			-dt*max(engine_target_ang_vel - min_engine_ang_vel,0),
-			5*dt*max(max_engine_ang_vel - engine_target_ang_vel,0),
+			-8*dt*max(engine_target_ang_vel - min_engine_ang_vel,0),
+			6*dt*max(max_engine_ang_vel - engine_target_ang_vel,0),
 			accel)
 		
 		var vel_diff = (engine_target_ang_vel-engine_ang_vel)
 #		engine_torque += 50*dt*clampf(50*vel_diff,-max_torque_bound,max_torque_bound)
-		engine_torque += 50*dt*sigmoid(vel_diff,200,200,max_torque_bound)
+		var torque_curve = 0.7*max(20 + engine_ang_vel*0.164 - engine_ang_vel*engine_ang_vel*0.00023,20)
+		engine_torque += torque_curve*dt*sigmoid(vel_diff,200,2000,max_torque_bound)
 		if engine_ang_vel < min_engine_ang_vel:	# stall engine if rpm is low
 			engine_timer += dt
 			var factor = 1 - pow(max(engine_ang_vel,0)/min_engine_ang_vel,4)
@@ -148,14 +149,14 @@ func update_gearbox(dt: float, gear: int) -> void:
 
 
 func update_driveaxle(dt: float, brake: float) -> void:
+	var avg_wheel_ang_vel = 0.5*(wheelF.angular_velocity+wheelR.angular_velocity)
 	# backward
-	gearbox_ang_vel = wheelR.angular_velocity*drive_axle_ratio
+	gearbox_ang_vel = lerpf(gearbox_ang_vel,avg_wheel_ang_vel*drive_axle_ratio,30*dt)
 	
 	# forward
 	var wheel_torque = gearbox_torque*drive_axle_ratio
 	
 	# apply brake
-	var avg_wheel_ang_vel = 0.5*(wheelF.angular_velocity+wheelR.angular_velocity)
 	if brake > 0:
 		wheel_torque = wheel_torque*(1-brake)
 		wheel_torque -= brake*sigmoid(avg_wheel_ang_vel,0.4,0.4,brake_strength)
@@ -181,10 +182,7 @@ func _physics_process(delta):
 	var ignition = GlobalVars.ignition
 	
 	engine_on = GlobalVars.engine_on
-	
-	# map input curve
-#	brake = brake*brake
-	
+
 	update_engine(delta, ignition, accel)
 	update_clutch(delta, clutch)
 	update_gearbox(delta, gear)
