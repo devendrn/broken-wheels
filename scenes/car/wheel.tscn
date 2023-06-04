@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://by4f4omep15rr"]
+[gd_scene load_steps=9 format=3 uid="uid://by4f4omep15rr"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://c5vridio37278" path="res://scenes/car/tyre.tres" id="1_c7och"]
+[ext_resource type="Script" path="res://scenes/car/wheel.gd" id="1_nr45s"]
 [ext_resource type="Texture2D" uid="uid://bmokf716bgx3b" path="res://assets/car/wheel.svg" id="2_pqi6p"]
+[ext_resource type="AudioStream" uid="uid://dtxtsq4i3g3oh" path="res://assets/sound/tyre_screech.wav" id="3_wovk5"]
+[ext_resource type="AudioStream" uid="uid://b4elhn51lcckc" path="res://assets/sound/collision.wav" id="5_gt4nc"]
+[ext_resource type="AudioStream" uid="uid://cjqye3ahadeip" path="res://assets/sound/noise.wav" id="6_qssf2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_igkj8"]
 radius = 54.0
@@ -11,12 +15,14 @@ radius = 54.0
 [node name="Wheel" type="RigidBody2D"]
 mass = 0.1
 center_of_mass_mode = 1
+script = ExtResource("1_nr45s")
 
 [node name="Axle" type="RigidBody2D" parent="."]
 mass = 0.08
 center_of_mass_mode = 1
 physics_material_override = ExtResource("1_c7och")
 max_contacts_reported = 1
+contact_monitor = true
 can_sleep = false
 
 [node name="Texture" type="Sprite2D" parent="Axle"]
@@ -27,6 +33,25 @@ texture = ExtResource("2_pqi6p")
 shape = SubResource("CircleShape2D_igkj8")
 debug_color = Color(0.768627, 0.160784, 1, 0.419608)
 
+[node name="ScreechSound" type="AudioStreamPlayer2D" parent="Axle"]
+position = Vector2(0, 48)
+stream = ExtResource("3_wovk5")
+volume_db = -80.0
+autoplay = true
+bus = &"Misc"
+
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="Axle"]
+position = Vector2(0, 48)
+stream = ExtResource("5_gt4nc")
+bus = &"Misc"
+
+[node name="RollingSound" type="AudioStreamPlayer2D" parent="Axle"]
+stream = ExtResource("6_qssf2")
+volume_db = -80.0
+pitch_scale = 0.7
+autoplay = true
+bus = &"Misc"
+
 [node name="PinJoint" type="PinJoint2D" parent="."]
 node_a = NodePath("..")
 node_b = NodePath("../Axle")
@@ -34,3 +59,5 @@ softness = 0.8
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5dg57")
+
+[connection signal="body_entered" from="Axle" to="." method="_on_axle_body_entered"]

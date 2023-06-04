@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcuf8xfso5abf" path="res://assets/car/rear_light.svg" id="3_wili4"]
 [ext_resource type="AudioStream" uid="uid://deksvq3iekk40" path="res://assets/sound/engine_low.wav" id="4_3v261"]
 [ext_resource type="Script" path="res://scenes/car/sound.gd" id="4_olkkf"]
-[ext_resource type="AudioStream" uid="uid://cjqye3ahadeip" path="res://assets/sound/noise.wav" id="6_72scd"]
+[ext_resource type="AudioStream" uid="uid://cp37p8kd1cupn" path="res://assets/sound/starter_low.wav" id="7_pnwep"]
 
 [node name="Car" type="RigidBody2D"]
 process_mode = 1
@@ -72,9 +72,9 @@ script = ExtResource("4_olkkf")
 stream = ExtResource("4_3v261")
 bus = &"Engine"
 
-[node name="TyreRoll" type="AudioStreamPlayer2D" parent="Sound"]
-stream = ExtResource("6_72scd")
-volume_db = -30.0
-pitch_scale = 0.94
-autoplay = true
+[node name="StarterLow" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("7_pnwep")
+pitch_scale = 1.68
 bus = &"Engine"
+
+[connection signal="update_starter_sound" from="." to="Sound" method="_on_car_update_starter_sound"]

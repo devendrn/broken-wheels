@@ -1,5 +1,4 @@
 [gd_resource type="PhysicsMaterial" format=3 uid="uid://c5vridio37278"]
 
 [resource]
-friction = 5.0
 absorbent = true

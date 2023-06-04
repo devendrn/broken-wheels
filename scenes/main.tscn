@@ -32,7 +32,7 @@ position = Vector2(-796, 603)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="World"]
 
 [node name="ParallaxLayer_" type="ParallaxLayer" parent="World/ParallaxBackground"]
-position = Vector2(0, -19)
+position = Vector2(0, -114)
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(6000, 0)
 
@@ -46,7 +46,7 @@ texture_rotation = -0.747001
 polygon = PackedVector2Array(-79.562, -114.842, -89.3848, 853.558, 1281.7, 869.716, 1271.88, -88.9893)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="World/ParallaxBackground"]
-position = Vector2(760, 592)
+position = Vector2(760, 497)
 motion_scale = Vector2(0.018, 0.018)
 motion_mirroring = Vector2(6000, 0)
 
@@ -70,7 +70,7 @@ scale = Vector2(-1, -1)
 texture = ExtResource("6_jmqk5")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="World/ParallaxBackground"]
-position = Vector2(760, 592)
+position = Vector2(760, 497)
 motion_scale = Vector2(0.05, 0.08)
 motion_mirroring = Vector2(6000, 0)
 
@@ -81,7 +81,7 @@ color = Color(0.21, 0.21, 0.21, 1)
 polygon = PackedVector2Array(-2545.02, 1343, -1895.44, 791, -1342.59, 958, -666.737, 756, -98.3554, 1075, 1010.94, 846, 1204.38, 985, 1407.38, 855, 1890.98, 1075, 2195.47, 801, 2723, 998, 2894.01, 842, 3436.12, 1017, 4689.9, 882, 5638, 1543, -1985, 1567)
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="World/ParallaxBackground"]
-position = Vector2(760, 592)
+position = Vector2(760, 497)
 motion_scale = Vector2(0.07, 0.1)
 motion_mirroring = Vector2(6000, 0)
 
@@ -92,9 +92,10 @@ color = Color(0.227451, 0.227451, 0.227451, 1)
 polygon = PackedVector2Array(-2545.02, 1347, -1445, 702, -903.165, 1025, -85.2205, 776, 187.029, 854, 407, 757, 1397, 984, 1707, 814, 2211, 886, 2509.51, 797, 2723, 998, 3587, 782, 4939, 1014, 5195, 894, 5921, 1526, -2502.04, 1561)
 
 [node name="ParallaxLayer0" type="ParallaxLayer" parent="World/ParallaxBackground"]
-position = Vector2(0, -19)
+position = Vector2(0, -114)
 motion_mirroring = Vector2(20000, 0)
 
 [node name="RoadMark" type="Polygon2D" parent="World/ParallaxBackground/ParallaxLayer0"]
+position = Vector2(0, 99)
 color = Color(0.282353, 0.282353, 0.282353, 1)
 polygon = PackedVector2Array(1778, 864, 1783, 1083, 1884, 1072, 1826, 859)

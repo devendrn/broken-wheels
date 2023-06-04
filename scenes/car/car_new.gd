@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+signal update_starter_sound(state: int)
+
 # car length is 4.384m/710px
 # gravity is by default 980cm/980px
 # game unit is 617.4cm/1000px
@@ -8,6 +10,7 @@ extends RigidBody2D
 # constant values
 const gear_ratio = [-4.0,0,4.11,2.12,1.36,0.97,0.77]
 const drive_axle_ratio = 3.39
+const starter_ratio = 16
 
 # from old car.gd - todo - remove
 const brake_strength = 95000
@@ -61,31 +64,52 @@ func _ready():
 # torque is propogated through the chain, finally to the wheels
 # engine -> clutch -> gearbox -> driveaxel -> wheels
 
-var engine_timer: float = 0.0
+var starter_engaged: bool = false
+var starter_ang_vel: float = 0
+var starter_torque: float = 0
+func update_starter(dt: float, ignition: int) -> void:
+	# forward
+	if(ignition > 0):
+		if(engine_on && !starter_engaged):
+			pass
+		else:
+			if(!starter_engaged):
+				starter_engaged = true
+				update_starter_sound.emit(1)
+			var diff = sigmoid(1000 - starter_ang_vel,10,1000,16000)
+			starter_torque = lerpf(starter_torque,diff,dt*5)
+	else:
+		starter_ang_vel -= starter_ang_vel*dt
+		if(starter_engaged):
+			starter_engaged = false
+			update_starter_sound.emit(0)
+
+var engine_timer: float = 0
 var engine_on: bool = false
-var engine_target_ang_vel: float = 0.0
-var engine_ang_vel: float = 0.0
-var engine_torque: float = 0.0
-var engine_health: int = 100
+var engine_target_ang_vel: float = 0
+var engine_ang_vel: float = 0
+var engine_torque: float = 0
+var engine_health: int = 1
 func update_engine(dt: float, ignition: int, accel: float) -> void:
 	accel = accel*accel
-	# only forward	
+	# backward
+	if(starter_engaged):
+		starter_ang_vel = engine_ang_vel*starter_ratio
+
+	# forward	
+	engine_torque = 0
 	if ignition > 0:	# add rpm upto ignition rpm
-		engine_on = true
-		engine_timer += dt
-		var ignition_ang_vel = dt*sigmoid(
-			min_engine_ang_vel*1.4-engine_target_ang_vel,
-			500,500,max_torque_bound,800)
-		ignition_ang_vel *= 0.5 + 0.5*sin(engine_timer*16)
-		engine_target_ang_vel += ignition_ang_vel
+		if(engine_ang_vel > 30 && starter_engaged):
+			engine_on = true
+			engine_target_ang_vel = engine_ang_vel
+		engine_torque += starter_torque/starter_ratio
 	elif ignition < 0:	# turn off engine
 		engine_timer = 0
 		engine_on = false
 	
-	engine_torque = 0
 	if engine_on:	
 		engine_target_ang_vel += lerpf(
-			-8*dt*max(engine_target_ang_vel - min_engine_ang_vel,0),
+			-8*dt*(engine_target_ang_vel - min_engine_ang_vel),
 			6*dt*max(max_engine_ang_vel - engine_target_ang_vel,0),
 			accel)
 		
@@ -98,13 +122,13 @@ func update_engine(dt: float, ignition: int, accel: float) -> void:
 			var factor = 1 - pow(max(engine_ang_vel,0)/min_engine_ang_vel,4)
 			factor *= 1 + sin(engine_timer*400*0.07)
 			engine_torque *= 1 + factor*2
-			if engine_ang_vel < min_engine_ang_vel*0.65:
+			if engine_ang_vel < min_engine_ang_vel*0.6:
 				engine_on = false
 	else:
 		if(engine_ang_vel>=0):
-			engine_torque = -80*engine_ang_vel*dt
+			engine_torque -= 80*engine_ang_vel*dt
 		else:
-			engine_torque -= 10000*engine_ang_vel*dt
+			engine_torque -= 1000*engine_ang_vel*dt
 		engine_target_ang_vel = 0
 
 	engine_ang_vel += engine_torque*dt
@@ -183,6 +207,7 @@ func _physics_process(delta):
 	
 	engine_on = GlobalVars.engine_on
 
+	update_starter(delta, ignition)
 	update_engine(delta, ignition, accel)
 	update_clutch(delta, clutch)
 	update_gearbox(delta, gear)
@@ -200,6 +225,8 @@ func _physics_process(delta):
 	update_brake_light(brake, engine_on)
 	
 	GlobalVars.state = {
+		'Starter torque': starter_torque,
+		'Starter engaged': int(starter_engaged),
 		'Engine vel': engine_ang_vel,
 		'Gearbox vel': gearbox_ang_vel,
 		'Wheel vel': wheelR.angular_velocity,

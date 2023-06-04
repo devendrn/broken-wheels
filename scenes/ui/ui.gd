@@ -14,7 +14,7 @@ func _on_is_flat_terrain_option_toggle_changed(pressed):
 
 	# reset car to original state (should add a button to do this)
 	car.rotation = 0
-	car.position.y = 0
+	car.position.y = -400
 	
 	ground.update_all_chunks()
 
