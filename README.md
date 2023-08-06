@@ -56,3 +56,7 @@ For those who are interested in trying out the game:
 This game is not intended to be a realistic simulation of cars gearbox mechanics, and it should not be used as such.
 This is a mobile game made for fun and knowledge.
 Contributions are welcome.
+
+## License
+
+MIT License © 2023 [devendrn](https://github.com/devendrn)
