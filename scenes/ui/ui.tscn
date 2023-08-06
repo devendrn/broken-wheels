@@ -318,7 +318,7 @@ stretch_mode = 5
 [node name="Description" type="Label" parent="Settings/ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "v0.x-dev
+text = "
 by devendrn
 
 Broken Wheels is a 2D Car Simulator made using Godot Game Engine"

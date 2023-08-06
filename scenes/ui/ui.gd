@@ -3,6 +3,11 @@ extends CanvasLayer
 @onready var ground = get_node("../World/Ground")
 @onready var car = get_node("../World/Car")
 
+func _ready():
+	var about_info = $Settings/ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer/Description
+	var version = ProjectSettings.get_setting("application/config/version")
+	about_info.text = "v" + str(version) + about_info.text
+	
 func _on_settings_settings_called(opened):
 	get_tree().paused = opened
 
