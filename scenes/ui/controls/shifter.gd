@@ -9,6 +9,8 @@ var index = -1
 var gear_pos = Vector2(0,0)
 
 @onready var knob = $Knob
+@onready var knob_top = $Knob/Top
+@onready var indicator = $Knob/Top/Label
 @onready var lever = $Lever
 @onready var cover_center = global_position 
 @onready var knob_size = knob.texture_normal.get_size()
@@ -39,12 +41,20 @@ func _input(event):
 			# set knob postion 
 			shifter_pos = 0.5*gear_pos*knob_size + cover_center - knob_size*0.5
 			
+			# parallax effect
+			knob_top.position = 6.0*gear_pos
+			
 			# lever rotation
 			lever.show()
 			lever.rotation = gear_pos.angle() - 0.5*PI 
 			if gear_pos == Vector2(0,0): lever.hide()
 			
 			GlobalVars.gear = pos[1+gear_pos.y][1+gear_pos.x]
+			if GlobalVars.gear <= 0:
+				var text = ["N", "R"]
+				indicator.text = text[-GlobalVars.gear]
+			else:
+				indicator.text = str(GlobalVars.gear)
 	else:
 		index = -1
 

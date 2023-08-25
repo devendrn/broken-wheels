@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnie5biqgt3mt"
-path="res://.godot/imported/shifter_knob.svg-e6a8b99683e098e1edeb2d41d7370f31.ctex"
+uid="uid://bylgnjmchnwu8"
+path="res://.godot/imported/shifter_knob_bottom.svg-8b07adb357d10fc2f0833a34e9cdf73d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/controls/shifter_knob.svg"
-dest_files=["res://.godot/imported/shifter_knob.svg-e6a8b99683e098e1edeb2d41d7370f31.ctex"]
+source_file="res://assets/ui/controls/shifter_knob_bottom.svg"
+dest_files=["res://.godot/imported/shifter_knob_bottom.svg-8b07adb357d10fc2f0833a34e9cdf73d.ctex"]
 
 [params]
 

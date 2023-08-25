@@ -3,6 +3,7 @@ extends Control
 const inertia_trigger = 15
 
 @export var spring : bool = true
+@export var label : String = "SLIDER"
 var value = 0
 
 # keep track of touch index (-1 means index not set)
@@ -11,6 +12,9 @@ var vel = 0
 
 @onready var btn = $Button
 @onready var max_offset = $Line.size.y - btn.texture_normal.get_size().y
+
+func _ready():
+	$Label.text = label
 
 func _input(event):
 	if btn.is_pressed():

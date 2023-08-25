@@ -3,7 +3,7 @@ extends Control
 
 # performance impact of draw?? not sure
 
-const res = 40
+const res = 35
 const delay = 0.02
 
 var timer = 0
@@ -82,11 +82,11 @@ func _ready():
 		i.fill(0)
 
 func _draw():
-	plot(vals,Vector2(0,0),Vector2(90,130))
+	plot(vals,Vector2(0,0),Vector2(110,170))
 	if Engine.is_editor_hint():
-		clutch_view(Vector2(100,0),0)
+		clutch_view(Vector2(130,0),0)
 	else:
-		clutch_view(Vector2(100,0),GlobalVars.clutch)
+		clutch_view(Vector2(130,0),GlobalVars.clutch)
 
 func _process(delta):
 	if !Engine.is_editor_hint():

@@ -34,23 +34,6 @@ Furthermore, breaking changes are made often.
  - Gear box overview
  - Shaders
 
-## Controls
-
-For those who are interested in trying out the game:
-
-| Region | Control |
-|-|-|
-| Top-right slider | Ignition (off/on/ignition) |
-| Bottom-left shifter | Gear (1,2,3,4,5,R) |
-| Bottom-left slider | Clutch |
-| Bottom-right sliders | E-brake, Brake, Accel |
-
-| Graph Line | Info |
-|-|-|
-| Red | Engine RPM |
-| Green | Target Engine RPM |
-| Blue | Speed |
-
 ## Note
 
 This game is not intended to be a realistic simulation of cars gearbox mechanics, and it should not be used as such.

@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scenes/ui/controls/controls.gd" id="1_di4x8"]
 [ext_resource type="Texture2D" uid="uid://bucefoly7h17l" path="res://assets/ui/controls/gauge.svg" id="2_rjs05"]
 [ext_resource type="Texture2D" uid="uid://c4kyxg83ufyk2" path="res://assets/ui/controls/gauge_rod.svg" id="3_rs30w"]
-[ext_resource type="PackedScene" path="res://scenes/ui/controls/slider.tscn" id="4_8vkop"]
-[ext_resource type="PackedScene" path="res://scenes/ui/controls/shifter.tscn" id="5_wmdbj"]
-[ext_resource type="PackedScene" path="res://scenes/ui/controls/start_slider.tscn" id="6_pwoih"]
-[ext_resource type="PackedScene" path="res://scenes/ui/controls/hand_brake.tscn" id="7_pc7q1"]
+[ext_resource type="PackedScene" uid="uid://dyouiu2v1fxdk" path="res://scenes/ui/controls/slider.tscn" id="4_8vkop"]
+[ext_resource type="PackedScene" uid="uid://ic5jkh8l6x7q" path="res://scenes/ui/controls/shifter.tscn" id="5_wmdbj"]
+[ext_resource type="PackedScene" uid="uid://b77lwmlc0ot4u" path="res://scenes/ui/controls/start_slider.tscn" id="6_pwoih"]
+[ext_resource type="PackedScene" uid="uid://c4hybymxiqfog" path="res://scenes/ui/controls/hand_brake.tscn" id="7_pc7q1"]
 [ext_resource type="Script" path="res://scenes/ui/controls/graph.gd" id="8_xfioq"]
 [ext_resource type="Texture2D" uid="uid://d012f1injanv0" path="res://icon.svg" id="9_04hrh"]
 [ext_resource type="Theme" uid="uid://c8goif3x5qufn" path="res://theme.tres" id="9_bbpqv"]
@@ -70,6 +70,38 @@ size_flags_vertical = 8
 texture = ExtResource("2_rjs05")
 expand_mode = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/Gauge"]
+custom_minimum_size = Vector2(416, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -71.0
+offset_right = 102.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="KMPH" type="Label" parent="Controls/Gauge/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.337255, 0.337255, 0.337255, 1)
+text = "KMPH"
+horizontal_alignment = 1
+
+[node name="RPM2" type="Label" parent="Controls/Gauge/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.372549, 0.372549, 0.372549, 1)
+text = "RPM"
+horizontal_alignment = 1
+
 [node name="RPM" type="TextureRect" parent="Controls/Gauge"]
 layout_mode = 1
 offset_left = 305.0
@@ -102,6 +134,7 @@ offset_bottom = -233.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 0
+label = "BRAKE"
 
 [node name="AccePedal" parent="Controls" instance=ExtResource("4_8vkop")]
 layout_mode = 1
@@ -116,6 +149,7 @@ offset_right = -102.0
 offset_bottom = -249.0
 grow_horizontal = 0
 grow_vertical = 0
+label = "ACCEL"
 
 [node name="ClutchPedal" parent="Controls" instance=ExtResource("4_8vkop")]
 layout_mode = 1
@@ -128,6 +162,7 @@ offset_right = 416.0
 offset_bottom = -230.0
 grow_vertical = 0
 spring = false
+label = "CLUTCH"
 
 [node name="Shifter" parent="Controls" instance=ExtResource("5_wmdbj")]
 layout_mode = 1
@@ -146,9 +181,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -223.0
-offset_top = 99.0
+offset_top = 79.0
 offset_right = -223.0
-offset_bottom = 99.0
+offset_bottom = 79.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 
@@ -171,9 +206,25 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 36.0
 offset_top = 35.0
-offset_right = 198.0
-offset_bottom = 175.0
+offset_right = 226.0
+offset_bottom = 291.0
 script = ExtResource("8_xfioq")
+
+[node name="Legends" type="RichTextLabel" parent="Controls/Graphs"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_right = 149.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
+bbcode_enabled = true
+text = "[color=#fe4850]◾[/color]  Engine RPM
+[color=#50fe50]◾[/color]  Target RPM
+[color=#4a80fe]◾[/color]  Speed "
+scroll_active = false
+text_direction = 1
 
 [node name="DebugText" type="RichTextLabel" parent="Controls"]
 visible = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://ic5jkh8l6x7q"]
 
-[ext_resource type="Texture2D" uid="uid://cnie5biqgt3mt" path="res://assets/ui/controls/shifter_knob.svg" id="1"]
 [ext_resource type="Script" path="res://scenes/ui/controls/shifter.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://0yj83ioqnp7t" path="res://assets/ui/controls/shifter_cover.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/controls/shifter_lever.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://bylgnjmchnwu8" path="res://assets/ui/controls/shifter_knob_bottom.svg" id="4_81fo2"]
+[ext_resource type="Texture2D" uid="uid://bueslrufvno78" path="res://assets/ui/controls/shifter_knob_top.svg" id="5_ifa0f"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 60.0
@@ -22,6 +23,21 @@ offset_bottom = 120.0
 pivot_offset = Vector2(105, 120)
 texture = ExtResource("3")
 
+[node name="Label" type="Label" parent="Cover"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.5
+offset_top = -51.0
+offset_right = 30.5
+offset_bottom = -14.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(1, 1, 1, 0.309804)
+text = "GEAR"
+horizontal_alignment = 1
+
 [node name="Lever" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
@@ -34,5 +50,39 @@ texture = ExtResource("4")
 
 [node name="Knob" type="TouchScreenButton" parent="."]
 position = Vector2(-70.5, -70.5)
-texture_normal = ExtResource("1")
+texture_normal = ExtResource("4_81fo2")
 shape = SubResource("1")
+
+[node name="Top" type="TextureRect" parent="Knob"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ifa0f")
+
+[node name="Label" type="Label" parent="Knob/Top"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -57.0
+offset_right = 19.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_constants/outline_size = 20
+text = "N"
+horizontal_alignment = 1
