@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Broken Wheels"
+config/description="Broken Wheels is a 2D car simulator with manual transmission mechanics. It is designed in a flat, minimalistic grayscale style."
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 boot_splash/image="res://assets/boot_splash.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
-config/version="0.3.2"
+config/version="0.3.3"
 
 [autoload]
 
@@ -27,7 +28,8 @@ GlobalVars="*res://scenes/global_vars.gd"
 
 window/size/viewport_width=1520
 window/size/viewport_height=720
-window/stretch/mode="2d"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [filesystem]
 
@@ -51,7 +53,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 textures/default_filters/anisotropic_filtering_level=1
 anti_aliasing/screen_space_roughness_limiter/enabled=false

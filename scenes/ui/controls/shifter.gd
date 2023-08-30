@@ -5,6 +5,8 @@ const pos= [[1,3,5],
 			[0,0,0],
 			[2,4,-1]]
 
+const speed = 25
+
 var index = -1
 var gear_pos = Vector2(0,0)
 
@@ -12,9 +14,11 @@ var gear_pos = Vector2(0,0)
 @onready var knob_top = $Knob/Top
 @onready var indicator = $Knob/Top/Label
 @onready var lever = $Lever
-@onready var cover_center = global_position 
 @onready var knob_size = knob.texture_normal.get_size()
-@onready var shifter_pos = cover_center - knob_size*0.5
+@onready var shifter_pos = knob.position
+@onready var lever_pos = lever.position
+@onready var lever_angle = 0.5*PI
+@onready var lever_scale = 0.5
 
 func _input(event):
 	if knob.is_pressed():
@@ -22,7 +26,7 @@ func _input(event):
 			index = event.get_index()
 		if event is InputEventScreenDrag and event.get_index() == index:
 			# find relative position from center of shifter
-			var rel_pos = (event.position-cover_center)/knob_size.y
+			var rel_pos = (event.position-global_position)/knob_size.y
 			
 			# update gear pos
 			if rel_pos.y > 0.5 : gear_pos.y = 1;
@@ -38,17 +42,17 @@ func _input(event):
 #			if dist.x > 0.5: gear_pos.x = sign(rel_pos.x)
 #			if dist.x < 0.2: gear_pos.x = 0
 
-			# set knob postion 
-			shifter_pos = 0.5*gear_pos*knob_size + cover_center - knob_size*0.5
+			# set shifter properties
+			shifter_pos = 0.5*gear_pos*knob_size - 0.5*knob_size
+			lever_angle = gear_pos.angle() - 0.5*PI
+			lever_scale = 0.5 if gear_pos == Vector2(0,0) else 1.0
 			
-			# parallax effect
-			knob_top.position = 6.0*gear_pos
-			
-			# lever rotation
-			lever.show()
-			lever.rotation = gear_pos.angle() - 0.5*PI 
-			if gear_pos == Vector2(0,0): lever.hide()
-			
+			# fix 0 to 360 transition
+			if lever_angle < -3.1 and lever.rotation > 0:
+				lever.rotation -= 2.0*PI
+			elif lever_angle > 0 and lever.rotation < -3.1:
+				lever.rotation += 2.0*PI
+				
 			GlobalVars.gear = pos[1+gear_pos.y][1+gear_pos.x]
 			if GlobalVars.gear <= 0:
 				var text = ["N", "R"]
@@ -59,6 +63,16 @@ func _input(event):
 		index = -1
 
 func _process(delta):
-	# smooth transition for the knob
-	knob.global_position -= (knob.global_position - shifter_pos)*delta*30
+	var sdelta = delta*speed
+	
+	# shifter main
+	knob.position -= (knob.position - shifter_pos)*sdelta
+	lever.rotation -= (lever.rotation - lever_angle)*sdelta
+	lever.scale.y -= (lever.scale.y - lever_scale)*sdelta
+	
+	# parallax effect
+	knob_top.position -= (knob_top.position - 6.0*gear_pos)*sdelta
+	knob.skew -= (knob.skew - gear_pos.x*gear_pos.y*0.06)*sdelta
+	lever.position -= (lever.position - lever_pos - 6.0*gear_pos)*sdelta
+	
 

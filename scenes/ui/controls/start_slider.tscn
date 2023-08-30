@@ -16,13 +16,13 @@ script = ExtResource("1_g4dvk")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Line" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 offset_top = -20.0
 offset_right = 172.0
 offset_bottom = 20.0
 pivot_offset = Vector2(0, 20)
 texture = ExtResource("2_fyfib")
-region_rect = Rect2(0, 0, 40, 100)
 patch_margin_left = 20
 patch_margin_top = 20
 patch_margin_right = 20

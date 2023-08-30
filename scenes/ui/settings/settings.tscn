@@ -1,0 +1,223 @@
+[gd_scene load_steps=14 format=3 uid="uid://3dw0wuj3tg2o"]
+
+[ext_resource type="Theme" uid="uid://c8goif3x5qufn" path="res://theme.tres" id="1_tcl35"]
+[ext_resource type="Script" path="res://scenes/ui/settings/settings.gd" id="2_ubl7e"]
+[ext_resource type="PackedScene" uid="uid://c1h8ayx8wg63w" path="res://scenes/ui/settings/toggle_option.tscn" id="3_dqsce"]
+[ext_resource type="PackedScene" uid="uid://cay1fpwjbu31u" path="res://scenes/ui/settings/slider_option.tscn" id="4_f0d3x"]
+[ext_resource type="Texture2D" uid="uid://d012f1injanv0" path="res://icon.svg" id="5_jlw5r"]
+[ext_resource type="Texture2D" uid="uid://dnln130fqt05u" path="res://assets/ui/github.svg" id="6_w3yox"]
+[ext_resource type="Texture2D" uid="uid://cnk2qumi20i4w" path="res://assets/ui/drop_icon.svg" id="7_hpgmi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x16b1"]
+line_spacing = 1.0
+font_size = 36
+
+[sub_resource type="Gradient" id="Gradient_glcsg"]
+offsets = PackedFloat32Array(0, 0.0884146, 0.902439, 0.911585, 1)
+colors = PackedColorArray(0.141176, 0.141176, 0.141176, 1, 0.141176, 0.141176, 0.141176, 0, 0.141176, 0.141176, 0.141176, 0, 0.141176, 0.141176, 0.141176, 0, 0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ad3y0"]
+gradient = SubResource("Gradient_glcsg")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2jml"]
+line_spacing = 14.0
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ek8xp"]
+font_size = 24
+font_color = Color(0.662745, 0.662745, 0.662745, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d18x"]
+size = Vector2(100, 45)
+
+[node name="Settings" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tcl35")
+script = ExtResource("2_ubl7e")
+
+[node name="ColorBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorBg"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorBg/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Content" type="VBoxContainer" parent="ColorBg/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ColorBg/VBoxContainer/HBoxContainer/Content"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 0
+text = "
+Settings
+"
+label_settings = SubResource("LabelSettings_x16b1")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GradientOverlay" type="TextureRect" parent="ColorBg/VBoxContainer/HBoxContainer/Content"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_ad3y0")
+
+[node name="Options" type="ScrollContainer" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmptyPaddingTop" type="Control" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="IsFlatTerrain" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer" instance=ExtResource("3_dqsce")]
+layout_mode = 2
+label_text = "Flat terrain"
+value = true
+
+[node name="SoundValue" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer" instance=ExtResource("4_f0d3x")]
+layout_mode = 2
+label_text = "Sound"
+slider_value = 80.0
+
+[node name="IsDebug" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer" instance=ExtResource("3_dqsce")]
+layout_mode = 2
+label_text = "Debug"
+
+[node name="EmptyPaddingBottom" type="Control" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="About" type="ColorRect" parent="ColorBg/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorBg/VBoxContainer/HBoxContainer/About"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Broken Wheels
+"
+label_settings = SubResource("LabelSettings_c2jml")
+horizontal_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("5_jlw5r")
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "
+by devendrn
+
+Broken Wheels is a 2D Car Simulator made using Godot Game Engine"
+label_settings = SubResource("LabelSettings_ek8xp")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Link" type="LinkButton" parent="ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_tcl35")
+theme_override_font_sizes/font_size = 24
+text = "    See on Github"
+underline = 2
+uri = "https://github.com/devendrn/broken-wheels"
+
+[node name="Logo" type="TextureRect" parent="ColorBg/VBoxContainer/HBoxContainer/About/VBoxContainer/Link"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -20.0
+offset_right = 9.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("6_w3yox")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Bottom" type="ColorRect" parent="ColorBg/VBoxContainer"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+color = Color(0.188235, 0.188235, 0.188235, 1)
+
+[node name="Slider" type="Control" parent="ColorBg"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="TouchScreenButton" parent="ColorBg/Slider"]
+position = Vector2(-31, 0)
+texture_normal = ExtResource("7_hpgmi")
+shape = SubResource("RectangleShape2D_7d18x")
+passby_press = true
+
+[connection signal="option_toggle_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/IsFlatTerrain" to="." method="_on_is_flat_terrain_option_toggle_changed"]
+[connection signal="option_slider_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/SoundValue" to="." method="_on_sound_value_option_slider_changed"]
+[connection signal="option_toggle_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/IsDebug" to="." method="_on_is_debug_option_toggle_changed"]
+[connection signal="pressed" from="ColorBg/Slider/Button" to="." method="_on_touch_screen_button_pressed"]

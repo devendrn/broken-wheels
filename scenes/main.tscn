@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cko3mujo7aeq2"]
+[gd_scene load_steps=10 format=3 uid="uid://cko3mujo7aeq2"]
 
-[ext_resource type="PackedScene" uid="uid://bg6nx8rn1dow1" path="res://scenes/ui/ui.tscn" id="1_yolpa"]
+[ext_resource type="PackedScene" uid="uid://ctf223bfl03re" path="res://scenes/ui/controls/controls.tscn" id="1_ew5wn"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_s5s3g"]
 [ext_resource type="PackedScene" uid="uid://dqt44qtw5m2ug" path="res://scenes/car/car.tscn" id="2_ige6o"]
+[ext_resource type="PackedScene" uid="uid://3dw0wuj3tg2o" path="res://scenes/ui/settings/settings.tscn" id="2_qu3j7"]
 [ext_resource type="PackedScene" uid="uid://bdt3o20nmdbrh" path="res://scenes/terrain/ground.tscn" id="3_6g3bj"]
 [ext_resource type="Texture2D" uid="uid://dfmatolj14oxc" path="res://assets/terrain/cloud_1.svg" id="5_qojk1"]
 [ext_resource type="Texture2D" uid="uid://dx4sjpody4uu7" path="res://assets/terrain/cloud_2.svg" id="6_jmqk5"]
@@ -15,8 +17,16 @@ gradient = SubResource("Gradient_ynbr7")
 width = 4
 
 [node name="Main" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_s5s3g")
 
-[node name="UI" parent="." instance=ExtResource("1_yolpa")]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Controls" parent="UI" instance=ExtResource("1_ew5wn")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" parent="UI" instance=ExtResource("2_qu3j7")]
+metadata/_edit_use_anchors_ = true
 
 [node name="World" type="Node2D" parent="."]
 position = Vector2(780, 310)
@@ -99,3 +109,6 @@ motion_mirroring = Vector2(20000, 0)
 position = Vector2(0, 99)
 color = Color(0.282353, 0.282353, 0.282353, 1)
 polygon = PackedVector2Array(1778, 864, 1783, 1083, 1884, 1072, 1826, 859)
+
+[connection signal="settings_called" from="UI/Settings" to="." method="_on_settings_settings_called"]
+[connection signal="settings_general_changed" from="UI/Settings" to="." method="_on_settings_settings_general_changed"]

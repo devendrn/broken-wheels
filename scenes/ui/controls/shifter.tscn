@@ -39,12 +39,12 @@ text = "GEAR"
 horizontal_alignment = 1
 
 [node name="Lever" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -35.0
 offset_top = -35.0
 offset_right = 35.0
 offset_bottom = 75.0
+scale = Vector2(1, 0.5)
 pivot_offset = Vector2(35, 35)
 texture = ExtResource("4")
 

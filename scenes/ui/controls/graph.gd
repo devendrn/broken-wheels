@@ -7,7 +7,7 @@ const res = 35
 const delay = 0.02
 
 var timer = 0
-var vals = [[],[],[]]
+var values = [[],[],[]]
 
 var angle1 = 0.0
 var angle2 = 0.0
@@ -77,12 +77,12 @@ func plot(y:Array,origin:Vector2,dimension:Vector2):
 			pt0 = pt1
 	
 func _ready():
-	for i in vals:
+	for i in values:
 		i.resize(res)
 		i.fill(0)
 
 func _draw():
-	plot(vals,Vector2(0,0),Vector2(110,170))
+	plot(values,Vector2(0,0),Vector2(110,170))
 	if Engine.is_editor_hint():
 		clutch_view(Vector2(130,0),0)
 	else:
@@ -93,10 +93,10 @@ func _process(delta):
 		var engine_speed = GlobalVars.engine_rpm/6000
 		
 		if timer > delay:
-			for i in vals: i.pop_front()
-			vals[0].append(engine_speed)
-			vals[1].append(GlobalVars.state['Engine rpm']/6000)
-			vals[2].append(GlobalVars.speed/200)
+			for i in values: i.pop_front()
+			values[0].append(engine_speed)
+			values[1].append(GlobalVars.state['Engine rpm']/6000)
+			values[2].append(GlobalVars.speed/200)
 			queue_redraw()
 			timer = 0
 		else:
