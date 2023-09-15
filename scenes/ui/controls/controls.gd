@@ -30,7 +30,6 @@ func _process(delta):
 
 func _on_timer_timeout():
 	var debug_text = ""
-	debug_text += format_debug_text("FPS:",Engine.get_frames_per_second(),0)
 	debug_text += format_debug_text("Clutch:",GlobalVars.clutch)
 	debug_text += format_debug_text("Brake:",GlobalVars.brake)
 	debug_text += format_debug_text("Accel:",GlobalVars.accel)
@@ -44,3 +43,5 @@ func _on_timer_timeout():
 		debug_text += "\n" + i + " : " + str(round(states[i]*10)*0.1)
 	
 	$DebugText.set_text(debug_text)
+	$FPSCounter.set_text(format_debug_text("FPS:",Engine.get_frames_per_second(),0))
+	

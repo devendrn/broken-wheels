@@ -141,7 +141,7 @@ offset_right = 171.0
 offset_bottom = -187.0
 grow_vertical = 0
 
-[node name="IngnitionSlider" parent="." instance=ExtResource("6_njgng")]
+[node name="IgnitionSlider" parent="." instance=ExtResource("6_njgng")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -186,9 +186,9 @@ offset_right = 149.0
 grow_vertical = 0
 theme_override_colors/default_color = Color(0.545098, 0.545098, 0.545098, 1)
 bbcode_enabled = true
-text = "[color=#fe4850]◾[/color]  Engine RPM
-[color=#50fe50]◾[/color]  Target RPM
-[color=#4a80fe]◾[/color]  Speed "
+text = "[color=#fe4850]━[/color]  Engine RPM
+[color=#50fe50]━[/color]  Target RPM
+[color=#4a80fe]━[/color]  Speed "
 scroll_active = false
 text_direction = 1
 
@@ -204,7 +204,21 @@ bbcode_enabled = true
 text = "Debug Values"
 scroll_active = false
 
+[node name="FPSCounter" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.772549)
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 132.0
+offset_bottom = 35.0
+bbcode_enabled = true
+text = "FPS: "
+scroll_active = false
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Sounds" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

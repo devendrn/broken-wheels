@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var engine = $Engine_low
+@onready var engine = $EngineLow
 @onready var starter_low = $StarterLow
 
 func _process(delta):

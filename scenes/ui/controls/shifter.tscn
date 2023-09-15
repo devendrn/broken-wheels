@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ic5jkh8l6x7q"]
+[gd_scene load_steps=8 format=3 uid="uid://ic5jkh8l6x7q"]
 
 [ext_resource type="Script" path="res://scenes/ui/controls/shifter.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://0yj83ioqnp7t" path="res://assets/ui/controls/shifter_cover.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://layn3tbk35es" path="res://assets/ui/controls/shifter_lever.svg" id="4"]
 [ext_resource type="Texture2D" uid="uid://bylgnjmchnwu8" path="res://assets/ui/controls/shifter_knob_bottom.svg" id="4_81fo2"]
 [ext_resource type="Texture2D" uid="uid://bueslrufvno78" path="res://assets/ui/controls/shifter_knob_top.svg" id="5_ifa0f"]
+[ext_resource type="AudioStream" uid="uid://cexw8hueb5q1c" path="res://assets/sound/gear_shift.wav" id="6_i4he2"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 60.0
@@ -44,7 +45,7 @@ offset_left = -35.0
 offset_top = -35.0
 offset_right = 35.0
 offset_bottom = 75.0
-scale = Vector2(1, 0.5)
+scale = Vector2(1, 0.7)
 pivot_offset = Vector2(35, 35)
 texture = ExtResource("4")
 
@@ -86,3 +87,8 @@ theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_constants/outline_size = 20
 text = "N"
 horizontal_alignment = 1
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i4he2")
+volume_db = -8.0
+pitch_scale = 0.8

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqt44qtw5m2ug"]
 
-[ext_resource type="Script" path="res://scenes/car/car_new.gd" id="1_81bin"]
+[ext_resource type="Script" path="res://scenes/car/car.gd" id="1_0iii5"]
 [ext_resource type="Texture2D" uid="uid://jybrcorcm7wq" path="res://assets/car/car.svg" id="2_a30x8"]
 [ext_resource type="PackedScene" uid="uid://by4f4omep15rr" path="res://scenes/car/wheel.tscn" id="3_rgb4d"]
 [ext_resource type="Texture2D" uid="uid://dcuf8xfso5abf" path="res://assets/car/rear_light.svg" id="3_wili4"]
@@ -14,13 +14,13 @@ collision_layer = 2
 collision_mask = 2
 mass = 1.6
 can_sleep = false
-script = ExtResource("1_81bin")
+script = ExtResource("1_0iii5")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_a30x8")
 
 [node name="RearLightOn" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.2)
+modulate = Color(1, 1, 1, 0.247059)
 position = Vector2(-324.125, -14)
 scale = Vector2(0.787736, 0.833333)
 texture = ExtResource("3_wili4")
@@ -68,7 +68,7 @@ length = 35.0
 [node name="Sound" type="Node2D" parent="."]
 script = ExtResource("4_olkkf")
 
-[node name="Engine_low" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="EngineLow" type="AudioStreamPlayer2D" parent="Sound"]
 stream = ExtResource("4_3v261")
 bus = &"Engine"
 

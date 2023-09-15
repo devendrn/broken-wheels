@@ -119,6 +119,11 @@ layout_mode = 2
 label_text = "Sound"
 slider_value = 80.0
 
+[node name="ZoomValue" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer" instance=ExtResource("4_f0d3x")]
+layout_mode = 2
+label_text = "Zoom"
+slider_value = 100.0
+
 [node name="IsDebug" parent="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer" instance=ExtResource("3_dqsce")]
 layout_mode = 2
 label_text = "Debug"
@@ -212,12 +217,13 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Button" type="TouchScreenButton" parent="ColorBg/Slider"]
-position = Vector2(-31, 0)
+position = Vector2(-30, 12)
 texture_normal = ExtResource("7_hpgmi")
 shape = SubResource("RectangleShape2D_7d18x")
 passby_press = true
 
 [connection signal="option_toggle_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/IsFlatTerrain" to="." method="_on_is_flat_terrain_option_toggle_changed"]
 [connection signal="option_slider_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/SoundValue" to="." method="_on_sound_value_option_slider_changed"]
+[connection signal="option_slider_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/ZoomValue" to="." method="_on_zoom_value_option_slider_changed"]
 [connection signal="option_toggle_changed" from="ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer/IsDebug" to="." method="_on_is_debug_option_toggle_changed"]
 [connection signal="pressed" from="ColorBg/Slider/Button" to="." method="_on_touch_screen_button_pressed"]

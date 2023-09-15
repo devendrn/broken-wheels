@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd41h5etw6lss"]
+[gd_scene load_steps=4 format=3 uid="uid://dd41h5etw6lss"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://dldmkax2p6c5e" path="res://scenes/terrain/ground.tres" id="1_gcwk6"]
 
 [sub_resource type="Gradient" id="Gradient_eqlvj"]
 interpolation_mode = 1
@@ -8,10 +10,13 @@ colors = PackedColorArray(0.843184, 0.843184, 0.843184, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ovodt"]
 gradient = SubResource("Gradient_eqlvj")
 
-[node name="Collision" type="CollisionPolygon2D"]
+[node name="Chunk" type="StaticBody2D"]
+physics_material_override = ExtResource("1_gcwk6")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
 
-[node name="Stripes" type="Polygon2D" parent="."]
+[node name="Stripes" type="Polygon2D" parent="Collision"]
 show_behind_parent = true
 texture_repeat = 2
 color = Color(0.403922, 0.403922, 0.403922, 1)
@@ -19,16 +24,8 @@ texture = SubResource("GradientTexture1D_ovodt")
 texture_scale = Vector2(0.25, 0.25)
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
 
-[node name="Color" type="Polygon2D" parent="."]
+[node name="Color" type="Polygon2D" parent="Collision"]
 color = Color(0.317647, 0.317647, 0.317647, 1)
 offset = Vector2(0, 15)
 texture_scale = Vector2(0.025, 0.025)
 polygon = PackedVector2Array(0, 0, 2000, 0, 2000, 400, 0, 400)
-
-[node name="Color2" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(3, -276)
-color = Color(0.317647, 0.317647, 0.317647, 1)
-offset = Vector2(0, 15)
-texture_scale = Vector2(0.025, 0.025)
-polygon = PackedVector2Array(0, 0, 70, 0, 70, 300, 0, 300)

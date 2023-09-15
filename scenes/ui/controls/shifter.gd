@@ -45,20 +45,26 @@ func _input(event):
 			# set shifter properties
 			shifter_pos = 0.5*gear_pos*knob_size - 0.5*knob_size
 			lever_angle = gear_pos.angle() - 0.5*PI
-			lever_scale = 0.5 if gear_pos == Vector2(0,0) else 1.0
+			lever_scale = 0.7 if gear_pos == Vector2(0,0) else 1.0
 			
 			# fix 0 to 360 transition
 			if lever_angle < -3.1 and lever.rotation > 0:
 				lever.rotation -= 2.0*PI
 			elif lever_angle > 0 and lever.rotation < -3.1:
 				lever.rotation += 2.0*PI
+			
+			var change_gear = pos[1+gear_pos.y][1+gear_pos.x]
+			if change_gear != GlobalVars.gear:
+				GlobalVars.gear = pos[1+gear_pos.y][1+gear_pos.x]
+				$Click.volume_db = -25 if change_gear == 0 else -10
+				$Click.play()
 				
-			GlobalVars.gear = pos[1+gear_pos.y][1+gear_pos.x]
-			if GlobalVars.gear <= 0:
-				var text = ["N", "R"]
-				indicator.text = text[-GlobalVars.gear]
-			else:
-				indicator.text = str(GlobalVars.gear)
+				if GlobalVars.gear == -1:
+					indicator.text = "R"
+				elif GlobalVars.gear == 0:
+					indicator.text = "N"
+				else:
+					indicator.text = str(GlobalVars.gear)
 	else:
 		index = -1
 

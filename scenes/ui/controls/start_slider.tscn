@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b77lwmlc0ot4u"]
+[gd_scene load_steps=6 format=3 uid="uid://b77lwmlc0ot4u"]
 
 [ext_resource type="Script" path="res://scenes/ui/controls/start_slider.gd" id="1_g4dvk"]
 [ext_resource type="Texture2D" uid="uid://c03rbsuny4wfv" path="res://assets/ui/controls/slider_bar.svg" id="2_fyfib"]
 [ext_resource type="Texture2D" uid="uid://cgky0gb1mmdrw" path="res://assets/ui/controls/start_btn.svg" id="3_8pskb"]
+[ext_resource type="AudioStream" uid="uid://ce8wiphmmlt85" path="res://assets/sound/ignition_click.wav" id="4_iloaj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uis34"]
 size = Vector2(80, 80)
@@ -14,6 +15,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_g4dvk")
 metadata/_edit_vertical_guides_ = []
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iloaj")
+volume_db = -6.0
+pitch_scale = 0.8
 
 [node name="Line" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(100, 0)

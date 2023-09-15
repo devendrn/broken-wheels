@@ -53,7 +53,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 textures/default_filters/anisotropic_filtering_level=1
 anti_aliasing/screen_space_roughness_limiter/enabled=false

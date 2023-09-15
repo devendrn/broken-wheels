@@ -12,5 +12,8 @@ var engine_on: bool = false
 var engine_rpm: float = 0
 var speed: float = 0
 
+# camera state
+var zoom: float = 1.0
+
 # for debug purpose
 var state: Dictionary = {}

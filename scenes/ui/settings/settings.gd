@@ -1,7 +1,7 @@
 extends Control
 
 signal settings_called(opened: bool)
-signal settings_general_changed(is_debug: bool, is_flat_world: bool, sound: float)
+signal settings_general_changed(is_debug: bool, is_flat_world: bool, sound: float, zoom: float)
 
 var settings_visible = false
 var pos_y = 0
@@ -49,13 +49,15 @@ func call_done():
 @onready var general_setttings = $ColorBg/VBoxContainer/HBoxContainer/Content/GradientOverlay/Options/VBoxContainer
 @onready var general_is_flat_world = general_setttings.get_node("IsFlatTerrain").value
 @onready var general_sound = general_setttings.get_node("SoundValue").slider_value
+@onready var general_zoom = general_setttings.get_node("ZoomValue").slider_value
 @onready var general_is_debug = general_setttings.get_node("IsDebug").value
 
 func general_changed():
 	settings_general_changed.emit(
 		general_is_debug,
 		general_is_flat_world,
-		general_sound
+		general_sound,
+		general_zoom
 	)
 
 func _on_is_flat_terrain_option_toggle_changed(pressed):
@@ -64,6 +66,10 @@ func _on_is_flat_terrain_option_toggle_changed(pressed):
 	
 func _on_sound_value_option_slider_changed(value):
 	general_sound = value
+	general_changed()
+
+func _on_zoom_value_option_slider_changed(value):
+	general_zoom = value
 	general_changed()
 
 func _on_is_debug_option_toggle_changed(pressed):

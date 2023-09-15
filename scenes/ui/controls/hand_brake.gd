@@ -15,7 +15,11 @@ func _input(event):
 			index = event.get_index()
 		if event is InputEventScreenDrag and event.get_index() == index:
 			var relative_pos = event.position.y - line.global_position.y
-			pos = 0 if relative_pos < line_height*0.5 else 1
+			if relative_pos < line_height*0.5:
+				pos = 0
+			elif pos != 1:
+				pos = 1
+				$Engage.play()
 	else:
 		index = -1
 

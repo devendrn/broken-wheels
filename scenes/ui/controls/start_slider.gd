@@ -10,17 +10,22 @@ var index = -1
 @onready var btn_width = btn.texture_normal.get_size().x
 @onready var max_offset = line_width - btn_width
 
+@onready var ignition_click = $Click
+
 func _input(event):
 	if btn.is_pressed():
 		if event is InputEventScreenTouch and index < 0:
 			index = event.get_index()
 		if event is InputEventScreenDrag and event.get_index() == index:
 			var relative_pos = (event.position.x - line.global_position.x)/line_width
-			if relative_pos <  0.2:
+			if relative_pos <  0.2 and pos != 0:
 				pos = 0
-			elif relative_pos > 0.4 and relative_pos < 0.6:
+				ignition_click.play()
+			elif relative_pos > 0.4 and relative_pos < 0.6 and pos != 1:
+				if pos == 0:
+					ignition_click.play()
 				pos = 1
-			elif relative_pos > 0.8:
+			elif relative_pos > 0.8 and pos != 2:
 				pos = 2
 	else:
 		index = -1
